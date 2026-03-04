@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior & I - Add Profile Picture</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="profile-wrapper">
+        <header class="profile-header">
+            <img src="../Images/dior.png" alt="Dior & I" class="logo">
+        </header>
+
+        <main class="profile-main">
+            <h1 class="welcome-title">WELCOME!</h1>
+            <p class="subtitle">Do you want to add/edit your profil picture?</p>
+
+            <div class="avatar-container">
+                <!-- Using a gray circle with a user icon to match the design -->
+                <div class="avatar-placeholder">
+                    <img src="../Images/user-white.png" alt="User Avatar" class="avatar-icon">
+                </div>
+                <input type="file" id="file-upload" accept="image/*" style="display: none;">
+            </div>
+
+            <div class="action-container">
+                <button class="btn select-btn" onclick="document.getElementById('file-upload').click()">Select a
+                    picture</button>
+                <button class="btn later-btn" onclick="window.location.href='../main/home/index.html'">Later</button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

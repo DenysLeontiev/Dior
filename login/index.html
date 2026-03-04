@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior & I - Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
+</head>
+
+<body>
+    <div class="login-wrapper">
+        <header class="login-header">
+            <img src="../Images/dior.png" alt="Dior & I" class="logo">
+
+            <div class="language-dropdown-container">
+                <select class="language-select">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                </select>
+                <svg class="dropdown-icon" width="12" height="8" viewBox="0 0 12 8" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L6 6L11 1" stroke="white" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </header>
+
+        <main class="login-main">
+            <section class="login-option">
+                <h2 class="option-title">I have a professional email (SSO)</h2>
+                <button class="btn enter-btn" onclick="window.location.href='../terms-of-use/index.html'">Enter</button>
+            </section>
+
+            <section class="login-option">
+                <h2 class="option-title">I don't have a professional email</h2>
+                <button class="btn enter-btn" onclick="window.location.href='../terms-of-use/index.html'">Enter</button>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

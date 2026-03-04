@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #171616;
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+    padding: 2rem;
+}
+
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5rem;
+    width: 100%;
+}
+
+.logo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    margin-bottom: 2.5rem;
+    object-fit: contain;
+    /* Make the original black image white */
+    filter: brightness(0) invert(1);
+}
+
+.language-dropdown-container {
+    position: relative;
+    width: 100%;
+    max-width: 220px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.language-select {
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: none;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.language-select option {
+    background: #171616;
+    color: #fff;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.login-main {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.login-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.option-title {
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}

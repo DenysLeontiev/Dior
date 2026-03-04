@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior & I - Notifications</title>
+    <!-- CSS for the generic navbar will be loaded by the component itself -->
+    <link rel="stylesheet" href="notifications.css">
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar/navbar.js" defer></script>
+    <script src="notifications.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <dior-navbar active="notifications"></dior-navbar>
+
+        <main class="notifications-main">
+            <header class="notifications-header">
+                <h1 class="page-title">NOTIFICATIONS</h1>
+                <button class="btn delete-all-btn">Delete all</button>
+            </header>
+
+            <div class="notifications-list">
+                <!-- Notification 1 (Unread) -->
+                <div class="notification-item unread">
+                    <div class="notification-status">
+                        <span class="status-dot"></span>
+                    </div>
+                    <div class="notification-content">
+                        <h2 class="notification-title">COMMUNITY WALL</h2>
+                        <p class="notification-text">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                            in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="notification-action">
+                        <button class="icon-btn delete-btn">
+                            <img src="../../Images/delete.png" alt="Delete" class="delete-icon">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification 2 (Unread) -->
+                <div class="notification-item unread">
+                    <div class="notification-status">
+                        <span class="status-dot"></span>
+                    </div>
+                    <div class="notification-content">
+                        <h2 class="notification-title">COMMUNITY WALL</h2>
+                        <p class="notification-text">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                            in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="notification-action">
+                        <button class="icon-btn delete-btn">
+                            <img src="../../Images/delete.png" alt="Delete" class="delete-icon">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification 3 (Read) -->
+                <div class="notification-item">
+                    <div class="notification-status">
+                        <!-- Empty space for read status -->
+                    </div>
+                    <div class="notification-content">
+                        <h2 class="notification-title">COMMUNITY WALL</h2>
+                        <p class="notification-text">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                            in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="notification-action">
+                        <button class="icon-btn delete-btn">
+                            <img src="../../Images/delete.png" alt="Delete" class="delete-icon">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Notification 4 (Read) -->
+                <div class="notification-item">
+                    <div class="notification-status">
+                        <!-- Empty space for read status -->
+                    </div>
+                    <div class="notification-content">
+                        <h2 class="notification-title">COMMUNITY WALL</h2>
+                        <p class="notification-text">Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                            in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div class="notification-action">
+                        <button class="icon-btn delete-btn">
+                            <img src="../../Images/delete.png" alt="Delete" class="delete-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

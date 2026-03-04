@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dior & I - Events</title>
+    <!-- CSS for the generic navbar will be loaded by the component itself -->
+    <link rel="stylesheet" href="events.css">
+
+    <!-- Load Navbar Component -->
+    <script src="../components/navbar/navbar.js" defer></script>
+    <script src="events.js" defer></script>
+</head>
+
+<body>
+    <div id="app">
+        <dior-navbar active="events"></dior-navbar>
+
+        <main class="events-main">
+            <!-- Header section (Back button) -->
+            <div class="events-header">
+                <a href="../home/index.html" class="back-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Hero/Details Section -->
+            <section class="event-hero">
+                <div class="event-image-container">
+                    <!-- Placeholder matching mockup -->
+                    <img src="https://picsum.photos/800/500?random=30" alt="Event Image" class="event-img">
+                </div>
+
+                <div class="event-info">
+                    <h1 class="event-title">Digital in Asia: Livestreaming</h1>
+                    <p class="event-desc">
+                        Discover the magic of Granville, the secret place where Christian Dior's passion for flower
+                        started.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Calendar Strip Section -->
+            <section class="calendar-section">
+                <div class="calendar-scroll">
+                    <!-- Active Date -->
+                    <div class="cal-item active">
+                        <span class="cal-date">7</span>
+                        <span class="cal-day">TUE</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <!-- Future Dates -->
+                    <div class="cal-item">
+                        <span class="cal-date">8</span>
+                        <span class="cal-day">WED</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">9</span>
+                        <span class="cal-day">THU</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">10</span>
+                        <span class="cal-day">FRI</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">11</span>
+                        <span class="cal-day">SAT</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">12</span>
+                        <span class="cal-day">SUN</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">13</span>
+                        <span class="cal-day">MON</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <!-- Disabled/Past Date Simulation -->
+                    <div class="cal-item disabled">
+                        <span class="cal-date">14</span>
+                        <span class="cal-day">TUE</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">15</span>
+                        <span class="cal-day">WED</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                    <div class="cal-item">
+                        <span class="cal-date">16</span>
+                        <span class="cal-day">THU</span>
+                        <span class="cal-month">NOV 20</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Specifics Section -->
+            <section class="event-details">
+                <div class="details-top">
+                    <p class="detail-text">Professeur : Aurore M.</p>
+                    <p class="detail-text right-align">10:00 AM – 12:00 AM UTC +1</p>
+                </div>
+
+                <div class="details-body">
+                    <p class="detail-text">This international negotiation class in English will be accessible via
+                        zoom:<br>
+                        <a href="#" class="zoom-link">https://fierojgoiehrgergih=fkgr</a>
+                    </p>
+
+                    <p class="detail-text">
+                        Meeting ID: <strong>903773</strong><br>
+                        Passcode: <strong>8262</strong>
+                    </p>
+
+                    <p class="detail-text">
+                        Places restantes : 5<br>
+                        Il reste 2 jours pour s'inscrire
+                    </p>
+                </div>
+
+                <div class="enroll-container">
+                    <button class="btn enroll-btn">ENROLL</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
+
+:host {
+    display: block;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 0 2rem;
+    height: 90px;
+    font-family: 'Jost', sans-serif;
+    color: #ffffff;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    width: 250px;
+}
+
+.dior-logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transform: translateY(5px);
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* Align to bottom for the active border */
+    height: 100%;
+    flex: 1;
+    gap: 3rem;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #8e8e8e;
+    text-decoration: none;
+    height: 100%;
+    padding: 0 10px;
+    position: relative;
+    transition: color 0.2s ease;
+    padding-top: 15px;
+    /* Push content down slightly */
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: #ffffff;
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #ffffff;
+    /* The mockup shows a white active bar under Home */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.icon-container {
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+.nav-item span {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+}
+
+.relative {
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    top: -5px;
+    right: -8px;
+    background-color: #ffb6c1;
+    /* Soft pink */
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 600;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.account-img-container {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 4px;
+    border: 1px solid #333;
+}
+
+.account-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: invert(1);
+    /* Because user-white.png is white, let's just make it visible on black */
+}
+
+/* Specific styling for the actual image if provided */
+.account-img.has-img {
+    filter: none;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 250px;
+    gap: 2rem;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #8e8e8e;
+    transition: color 0.2s ease;
+}
+
+.search-container:hover {
+    color: #fff;
+}
+
+.search-text {
+    font-size: 0.85rem;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    color: #8e8e8e;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.menu-btn:hover {
+    color: #ffffff;
+}
+
+/* Sidebar Overlay */
+.sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-backdrop.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    /* Hide off-screen */
+    width: 450px;
+    height: 100vh;
+    background-color: #171616;
+    /* Dark theme */
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 4rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    /* Prevent focus state when off-screen */
+}
+
+.sidebar-menu.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.sidebar-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.close-btn {
+    position: absolute;
+    right: -1.5rem;
+    /* Push close to edge */
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+}
+
+.sidebar-nav-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.sidebar-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar-link:hover {
+    color: #ffb6c1;
+    /* Pink highlight */
+    transform: translateX(5px);
+    /* Slight nudge */
+}

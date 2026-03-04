@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a;
+    /* slightly lighter than black, matches screenshot */
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.logo {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    margin-top: 2rem;
+}
+
+.profile-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-title {
+    font-family: 'Oswald', sans-serif;
+    /* matches tall bold font */
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #e0e0e0;
+}
+
+.avatar-container {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #797979;
+    /* matches gray in screenshot */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4rem;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    /* inner shadow inside the placeholder to mimic silhouette blending */
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    /* push icon to bottom slightly if it's just a bust */
+    background: radial-gradient(circle, #8a8a8a 0%, #6e6e6e 100%);
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.avatar-icon {
+    width: 65%;
+    height: auto;
+    opacity: 0.5;
+    /* make user icon look like the gray silhouette */
+    margin-bottom: -10px;
+    filter: brightness(0);
+    /* Make icon black/dark grey */
+}
+
+.action-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    align-items: center;
+}
+
+.btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.1rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.select-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+.later-btn {
+    background-color: #5d676e;
+    /* Slate gray from screenshot */
+    color: #000;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}

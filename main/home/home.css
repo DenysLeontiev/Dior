@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #151515;
+    /* Match dark theme */
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.dashboard-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+}
+
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.hero-slide {
+    display: flex;
+    width: 100%;
+    height: 480px;
+    /* Adjust based on mockup */
+    background-color: #1c1c1c;
+    /* Background for text side */
+    position: relative;
+    border-bottom: 1px solid #333;
+}
+
+.hero-image-container {
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-bg-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #e3ecf5 0%, #b8c6d1 100%);
+    /* Similar to the Dior lucky image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+}
+
+.hero-content {
+    width: 40%;
+    padding: 3rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #d0d0d0;
+    margin-bottom: 2.5rem;
+    max-width: 90%;
+}
+
+.hero-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: auto;
+}
+
+.icon-circle {
+    width: 36px;
+    height: 36px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+
+.hero-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 4rem;
+}
+
+.hero-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #555;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #ffb6c1;
+    /* Pink active dot */
+}
+
+.hero-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d0d0d0;
+    font-weight: 300;
+    font-size: 0.95rem;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.nav-arrow:hover {
+    opacity: 1;
+}
+
+.nav-arrow.prev {
+    left: 20px;
+}
+
+.more-news-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.more-news-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 32px;
+    font-size: 1.05rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.more-news-btn:hover {
+    transform: scale(1.03);
+}
+
+/* Carousels */
+.carousel-section {
+    padding: 0 4rem;
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.collapse-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cards-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.cards-container {
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    overflow: hidden;
+}
+
+.card {
+    flex: 1;
+    min-width: calc(33.333% - 1rem);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.card-bg-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-bg-placeholder {
+    transform: scale(1.05);
+    /* subtle zoom on hover */
+}
+
+.card-progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #555;
+    margin-bottom: 1rem;
+    border-radius: 2px;
+}
+
+.card-progress-fill {
+    height: 100%;
+    background-color: #ffb6c1;
+    /* Pink progress */
+    border-radius: 2px;
+}
+
+.card-title {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #e0e0e0;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    /* The design shows classic slanted text here occasionally */
+}
+
+.card-info {
+    color: #888;
+}
+
+.side-arrow {
+    right: -2rem;
+    /* Move arrow outside of grid */
+}
