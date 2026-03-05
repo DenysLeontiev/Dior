@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@500;600&display=swap');
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -8,10 +10,10 @@
 
 body {
     background-color: #171616;
-    /* Standard dark theme */
     color: #ffffff;
     font-family: 'Jost', sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #app {
@@ -20,33 +22,34 @@ body {
     min-height: 100vh;
 }
 
+/* ─── Main ────────────────────────────────────────────── */
 .notifications-main {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 3rem;
+    padding: clamp(1.25rem, 4vw, 3rem);
     max-width: 1000px;
     margin: 0 auto;
     width: 100%;
+    padding-bottom: 5rem;
 }
 
+/* ─── Header ──────────────────────────────────────────── */
 .notifications-header {
     display: flex;
     justify-content: center;
-    /* Center the title */
     align-items: center;
     position: relative;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
     width: 100%;
 }
 
 .page-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin: 0;
 }
 
 .delete-all-btn {
@@ -56,12 +59,14 @@ body {
     color: #000;
     border: none;
     border-radius: 30px;
-    padding: 8px 24px;
-    font-size: 0.9rem;
+    padding: 8px clamp(16px, 3vw, 24px);
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
     font-family: inherit;
     font-weight: 500;
     cursor: pointer;
     transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
 }
 
 .delete-all-btn:hover {
@@ -69,6 +74,11 @@ body {
     transform: scale(1.02);
 }
 
+.delete-all-btn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Notification List ───────────────────────────────── */
 .notifications-list {
     display: flex;
     flex-direction: column;
@@ -78,17 +88,19 @@ body {
 .notification-item {
     display: flex;
     align-items: flex-start;
-    padding: 2rem 0;
+    padding: clamp(1rem, 3vw, 2rem) 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.3s ease;
+    gap: 0;
 }
 
 .notification-item:hover {
     background-color: rgba(255, 255, 255, 0.02);
 }
 
+/* ─── Status Dot ──────────────────────────────────────── */
 .notification-status {
-    width: 30px;
+    width: clamp(20px, 4vw, 30px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -101,34 +113,36 @@ body {
     height: 8px;
     border-radius: 50%;
     background-color: #C4759B;
-    /* Pink indicator */
 }
 
+/* ─── Content ─────────────────────────────────────────── */
 .notification-content {
     flex: 1;
-    padding-right: 2rem;
+    padding-right: clamp(0.75rem, 2vw, 2rem);
+    min-width: 0;
 }
 
 .notification-title {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
     letter-spacing: 0.5px;
 }
 
 .notification-text {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
     font-weight: 300;
     line-height: 1.6;
     color: #b0b0b0;
-    margin: 0;
 }
 
+/* ─── Delete Button ───────────────────────────────────── */
 .notification-action {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
     padding-top: 2px;
+    flex-shrink: 0;
 }
 
 .icon-btn {
@@ -137,7 +151,8 @@ body {
     cursor: pointer;
     opacity: 0.5;
     transition: opacity 0.2s ease;
-    padding: 5px;
+    padding: 6px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .icon-btn:hover {
@@ -149,5 +164,47 @@ body {
     height: 20px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    /* Ensure it's white/light since the base might vary */
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .notifications-main {
+        padding: 1rem;
+        padding-bottom: 4.5rem;
+    }
+
+    .notifications-header {
+        justify-content: space-between;
+        position: static;
+    }
+
+    .delete-all-btn {
+        position: static;
+    }
+
+    .notification-item {
+        padding: 0.85rem 0;
+    }
+
+    .delete-icon {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .notifications-main {
+        padding: 0.75rem;
+        padding-bottom: 4rem;
+    }
+
+    .notification-status {
+        width: 16px;
+    }
+
+    .status-dot {
+        width: 6px;
+        height: 6px;
+    }
 }

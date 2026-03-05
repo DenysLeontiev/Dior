@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@500;600&display=swap');
 
 :host {
     display: block;
@@ -6,13 +6,14 @@
     overflow-x: hidden;
 }
 
+/* ─── Top Navbar ──────────────────────────────────────── */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #000000;
-    padding: 0 2rem;
-    height: 90px;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    height: 80px;
     font-family: 'Jost', sans-serif;
     color: #ffffff;
     border-bottom: 1px solid #1a1a1a;
@@ -21,25 +22,25 @@
 .nav-left {
     display: flex;
     align-items: center;
-    width: 250px;
+    flex-shrink: 0;
 }
 
 .dior-logo {
-    height: 40px;
+    height: 36px;
     width: auto;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    transform: translateY(5px);
+    transform: translateY(3px);
 }
 
+/* ─── Center Nav (Desktop Tabs) ───────────────────────── */
 .nav-center {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* Align to bottom for the active border */
     height: 100%;
     flex: 1;
-    gap: 3rem;
+    gap: clamp(1rem, 2.5vw, 3rem);
 }
 
 .nav-item {
@@ -50,11 +51,10 @@
     color: #8e8e8e;
     text-decoration: none;
     height: 100%;
-    padding: 0 10px;
+    padding: 15px 8px 0;
     position: relative;
     transition: color 0.2s ease;
-    padding-top: 15px;
-    /* Push content down slightly */
+    white-space: nowrap;
 }
 
 .nav-item:hover,
@@ -70,21 +70,20 @@
     width: 100%;
     height: 4px;
     background-color: #ffffff;
-    /* The mockup shows a white active bar under Home */
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
 }
 
 .icon-container {
-    height: 28px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .nav-item span {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 400;
     letter-spacing: 0.3px;
 }
@@ -98,9 +97,8 @@
     top: -5px;
     right: -8px;
     background-color: #ffb6c1;
-    /* Soft pink */
     color: #000;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
     width: 16px;
     height: 16px;
@@ -110,9 +108,10 @@
     align-items: center;
 }
 
+/* ─── Account Avatar ──────────────────────────────────── */
 .account-img-container {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 4px;
@@ -123,27 +122,25 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: invert(1);
-    /* Because user-white.png is white, let's just make it visible on black */
 }
 
-/* Specific styling for the actual image if provided */
 .account-img.has-img {
     filter: none;
 }
 
+/* ─── Right Section ───────────────────────────────────── */
 .nav-right {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 250px;
-    gap: 2rem;
+    flex-shrink: 0;
+    gap: 1.5rem;
 }
 
 .search-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     cursor: pointer;
     color: #8e8e8e;
     transition: color 0.2s ease;
@@ -166,13 +163,15 @@
     align-items: center;
     justify-content: center;
     transition: color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
 }
 
 .menu-btn:hover {
     color: #ffffff;
 }
 
-/* Sidebar Overlay */
+/* ─── Sidebar Backdrop ────────────────────────────────── */
 .sidebar-backdrop {
     position: fixed;
     top: 0;
@@ -191,25 +190,24 @@
     visibility: visible;
 }
 
-/* Sidebar Menu */
+/* ─── Sidebar Menu ────────────────────────────────────── */
 .sidebar-menu {
     position: fixed;
     top: 0;
     right: 0;
     transform: translateX(100%);
-    /* Hide off-screen */
-    width: 450px;
+    width: min(420px, 85vw);
     height: 100vh;
     background-color: #171616;
-    /* Dark theme */
     z-index: 1000;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, visibility 0.3s ease;
     display: flex;
     flex-direction: column;
-    padding: 3rem 4rem;
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 4rem);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     visibility: hidden;
-    /* Prevent focus state when off-screen */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sidebar-menu.open {
@@ -222,20 +220,19 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: clamp(2rem, 5vh, 4rem);
 }
 
 .sidebar-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
 .close-btn {
     position: absolute;
-    right: -1.5rem;
-    /* Push close to edge */
+    right: 0;
     background: none;
     border: none;
     color: #fff;
@@ -243,7 +240,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 4px;
     transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .close-btn:hover {
@@ -254,7 +253,7 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: clamp(1.5rem, 4vh, 2.5rem);
 }
 
 .sidebar-link {
@@ -263,15 +262,133 @@
     align-items: center;
     text-decoration: none;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: 400;
     letter-spacing: 0.5px;
     transition: color 0.2s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .sidebar-link:hover {
     color: #ffb6c1;
-    /* Pink highlight */
     transform: translateX(5px);
-    /* Slight nudge */
+}
+
+/* ─── Mobile Bottom Nav ───────────────────────────────── */
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* ─── Responsive: Tablet (≤ 900px) ────────────────────── */
+@media (max-width: 900px) {
+    .navbar {
+        height: 70px;
+    }
+
+    .nav-center {
+        gap: clamp(0.5rem, 2vw, 1.5rem);
+    }
+
+    .nav-item span {
+        font-size: 0.65rem;
+    }
+
+    .search-text {
+        display: none;
+    }
+}
+
+/* ─── Responsive: Mobile (≤ 640px) ────────────────────── */
+@media (max-width: 640px) {
+    .navbar {
+        height: 56px;
+        padding: 0 1rem;
+    }
+
+    .dior-logo {
+        height: 28px;
+    }
+
+    /* Hide desktop center nav on mobile */
+    .nav-center {
+        display: none;
+    }
+
+    .nav-right {
+        gap: 1rem;
+    }
+
+    /* Show bottom tab bar on mobile */
+    .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background-color: #000;
+        border-top: 1px solid #1a1a1a;
+        z-index: 998;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 0.5rem;
+    }
+
+    .mobile-bottom-nav .nav-item {
+        flex: 1;
+        height: 100%;
+        padding: 8px 0 4px;
+        font-size: 0.65rem;
+    }
+
+    .mobile-bottom-nav .nav-item span {
+        font-size: 0.6rem;
+    }
+
+    .mobile-bottom-nav .icon-container {
+        height: 22px;
+        margin-bottom: 3px;
+    }
+
+    .mobile-bottom-nav .icon-container svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .mobile-bottom-nav .nav-item.active::after {
+        top: 0;
+        bottom: auto;
+        border-radius: 0 0 4px 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    /* Sidebar full-width on mobile */
+    .sidebar-menu {
+        width: 100vw;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .navbar {
+        height: 50px;
+        padding: 0 0.75rem;
+    }
+
+    .dior-logo {
+        height: 24px;
+    }
+
+    .mobile-bottom-nav {
+        height: 54px;
+    }
+
+    .mobile-bottom-nav .nav-item span {
+        font-size: 0.55rem;
+    }
+
+    .sidebar-menu {
+        padding: 1.5rem 1rem;
+    }
 }

@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Oswald:wght@500;600&display=swap');
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -11,6 +13,7 @@ body {
     color: #ffffff;
     font-family: 'Jost', sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #app {
@@ -24,53 +27,55 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 900px;
-    /* Slightly wider than mobile */
     margin: 0 auto;
     width: 100%;
     padding-bottom: 5rem;
 }
 
-/* Header */
+/* ─── Header ──────────────────────────────────────────── */
 .account-header {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 2rem 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
 }
 
 .back-btn {
     position: absolute;
-    left: 1.5rem;
+    left: clamp(0.75rem, 3vw, 1.5rem);
     color: #fff;
     background: none;
     border: none;
     cursor: pointer;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
 }
 
 .page-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
-/* Profile Info */
+/* ─── Profile Info ────────────────────────────────────── */
 .profile-info {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem 2.5rem 1.5rem;
-    gap: 1.5rem;
+    padding: 0.75rem clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 4vw, 2.5rem);
+    gap: clamp(1rem, 3vw, 1.5rem);
 }
 
 .avatar-wrapper {
-    width: 100px;
-    height: 100px;
+    width: clamp(70px, 15vw, 100px);
+    height: clamp(70px, 15vw, 100px);
     border-radius: 50%;
     overflow: hidden;
     background-color: #333;
-    /* Fallback */
     flex-shrink: 0;
 }
 
@@ -83,13 +88,13 @@ body {
 .profile-details {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .profile-name {
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     font-weight: 600;
-    /* Bold part */
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.2rem;
     letter-spacing: 0.5px;
 }
 
@@ -98,12 +103,12 @@ body {
 }
 
 .profile-role {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     font-weight: 300;
     color: #d0d0d0;
 }
 
-/* Tabs */
+/* ─── Tabs ────────────────────────────────────────────── */
 .tabs-container {
     display: flex;
     width: 100%;
@@ -115,10 +120,13 @@ body {
     background: none;
     border: none;
     color: #888;
-    padding: 1rem 0 1.2rem 0;
+    padding: 0.75rem 0 1rem;
     cursor: pointer;
     position: relative;
     transition: color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tab-btn:hover {
@@ -133,18 +141,16 @@ body {
     content: '';
     position: absolute;
     bottom: -1px;
-    /* Overlap border */
     left: 0;
     width: 100%;
     height: 2px;
     background-color: #C4759B;
-    /* Pink brand line */
 }
 
-/* Common Section Styles */
+/* ─── Tab Content ─────────────────────────────────────── */
 .tab-content {
     display: block;
-    padding: 2rem 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
     animation: fadeIn 0.3s ease;
 }
 
@@ -163,94 +169,96 @@ body {
 }
 
 .content-section {
-    margin-bottom: 3.5rem;
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
 .section-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.4rem;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     font-weight: 500;
     letter-spacing: 0.5px;
     border-bottom: 1px solid #333;
-    padding-bottom: 0.8rem;
-    margin-bottom: 2rem;
+    padding-bottom: 0.6rem;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
 }
 
-/* SCORE Section */
+/* ─── Score Section ───────────────────────────────────── */
 .score-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1rem;
+    padding: 0 clamp(0, 2vw, 1rem);
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .score-points {
     display: flex;
     align-items: baseline;
-    gap: 8px;
+    gap: 6px;
 }
 
 .points-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 300;
     color: #888;
 }
 
 .points-current {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 500;
 }
 
 .points-total {
-    font-size: 1rem;
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
     color: #666;
     font-weight: 300;
 }
 
 .stars-row {
     display: flex;
-    gap: 6px;
+    gap: 4px;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 .star {
-    width: 18px;
-    height: 18px;
+    width: clamp(14px, 2.5vw, 18px);
+    height: clamp(14px, 2.5vw, 18px);
 }
 
 .star.filled {
     color: #C4759B;
-    /* Pink stars */
 }
 
 .star.empty {
     color: #444;
-    /* Grey stars */
 }
 
 .star-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
 }
 
 .star-number {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: #fff;
 }
 
-/* BADGES Section */
+/* ─── Badges Section ──────────────────────────────────── */
 .badges-container {
     display: flex;
-    gap: 15px;
+    gap: clamp(10px, 2vw, 15px);
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .badge-item {
-    width: 45px;
-    height: 45px;
+    width: clamp(35px, 7vw, 45px);
+    height: clamp(35px, 7vw, 45px);
 }
 
 .badge-item.color-1 {
@@ -269,26 +277,27 @@ body {
     color: #555;
 }
 
-/* SKILLS Section */
+/* ─── Skills Section ──────────────────────────────────── */
 .skills-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 0 1rem;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 0 clamp(0, 2vw, 1rem);
 }
 
 .skill-row {
     display: flex;
     align-items: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
 }
 
 .skill-name {
-    width: 140px;
-    /* fixed width for text alignment */
-    font-size: 0.9rem;
+    width: clamp(80px, 18vw, 140px);
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
     font-weight: 300;
     letter-spacing: 0.5px;
     color: #d0d0d0;
+    flex-shrink: 0;
 }
 
 .skill-progress-wrapper {
@@ -296,8 +305,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    /* Percentage stays on right */
-    gap: 4px;
+    gap: 3px;
+    min-width: 0;
 }
 
 .skill-percent {
@@ -315,15 +324,14 @@ body {
 .skill-fill {
     height: 100%;
     background-color: #ffb6c1;
-    /* Lighter pink for progress */
     border-radius: 2px;
 }
 
-/* INTERESTS Section */
+/* ─── Interests Section ───────────────────────────────── */
 .interests-container {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    margin-bottom: 1.5rem;
 }
 
 .interest-card {
@@ -331,7 +339,8 @@ body {
     position: relative;
     border-radius: 6px;
     overflow: hidden;
-    height: 150px;
+    aspect-ratio: 3 / 2;
+    min-width: 0;
 }
 
 .interest-card img {
@@ -339,8 +348,7 @@ body {
     height: 100%;
     object-fit: cover;
     opacity: 0.7;
-    /* dark overlay built-in feel */
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
 }
 
 .interest-card:hover img {
@@ -349,14 +357,13 @@ body {
 
 .interest-label {
     position: absolute;
-    bottom: 10px;
+    bottom: 8px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 0.95rem;
+    font-size: clamp(0.7rem, 1.3vw, 0.95rem);
     font-weight: 300;
     font-style: italic;
-    /* Match Home screen aesthetic slightly */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
@@ -370,47 +377,49 @@ body {
     color: #000;
     border: none;
     border-radius: 30px;
-    padding: 10px 40px;
-    font-size: 1rem;
+    padding: 10px clamp(28px, 6vw, 40px);
+    font-size: 0.95rem;
     font-family: inherit;
     font-weight: 500;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .update-btn:hover {
     transform: scale(1.02);
 }
 
-/* BOOKMARKS Shared */
+.update-btn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Bookmarks Grid ──────────────────────────────────── */
 .bookmarks-grid {
     display: flex;
-    gap: 1.5rem;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
     overflow-x: auto;
-    /* horizontally scrollable if needed */
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
 }
 
 .bookmarks-grid::-webkit-scrollbar {
-    height: 4px;
-}
-
-.bookmarks-grid::-webkit-scrollbar-thumb {
-    background: #444;
-    border-radius: 4px;
+    display: none;
 }
 
 .bookmark-card {
     flex: 0 0 calc(33.333% - 1rem);
-    /* 3 cards desktop */
     display: flex;
     flex-direction: column;
-    gap: 0.8rem;
+    gap: 0.6rem;
+    scroll-snap-align: start;
 }
 
 .bookmark-img-wrapper {
     width: 100%;
-    height: 150px;
+    aspect-ratio: 3 / 2;
     position: relative;
     border-radius: 6px;
     overflow: hidden;
@@ -426,30 +435,26 @@ body {
 .bookmark-icon {
     position: absolute;
     top: -5px;
-    right: 15px;
-    width: 24px;
-    height: 32px;
+    right: 12px;
+    width: 22px;
+    height: 30px;
     color: #ffb6c1;
-    /* Pink ribbon */
 }
 
 .bookmark-title {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
     font-weight: 300;
     font-style: italic;
     color: #d0d0d0;
 }
 
-/* Square Posts Variant */
+/* ─── Square Posts Variant ─────────────────────────────── */
 .square-posts .bookmark-card {
     flex: 0 0 calc(25% - 1.125rem);
-    /* roughly 4 smaller square cards */
 }
 
 .square-posts .bookmark-img-wrapper {
-    height: auto;
     aspect-ratio: 1 / 1;
-    /* keep square */
 }
 
 .empty-state {
@@ -458,17 +463,15 @@ body {
     font-weight: 300;
 }
 
-/* -------------------------------------
-   NEW HEART TAB (Instagram Style) 
--------------------------------------- */
-
+/* ─── Heart Tab (Metrics + Gallery) ───────────────────── */
 .metrics-section {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem 0 2rem 0;
+    padding: 0.75rem 0 clamp(1rem, 3vw, 2rem);
     border-bottom: 1px solid #333;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    gap: 0.5rem;
 }
 
 .metric-item {
@@ -479,13 +482,13 @@ body {
 
 .metric-value {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     font-weight: 500;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
 }
 
 .metric-label {
-    font-size: 0.8rem;
+    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
     font-weight: 600;
     color: #fff;
 }
@@ -497,8 +500,7 @@ body {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    /* Slight gap between images to match Instagram style */
+    gap: 3px;
 }
 
 .gallery-item {
@@ -517,4 +519,72 @@ body {
 
 .gallery-item:hover img {
     transform: scale(1.05);
+}
+
+/* ─── Responsive: Tablet (≤ 768px) ────────────────────── */
+@media (max-width: 768px) {
+    .score-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .bookmark-card {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 calc(33.333% - 0.75rem);
+    }
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .account-main {
+        padding-bottom: 4.5rem;
+    }
+
+    .interests-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .interest-card {
+        aspect-ratio: 16 / 7;
+    }
+
+    .bookmark-card {
+        flex: 0 0 70%;
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 45%;
+    }
+
+    .skill-name {
+        width: 80px;
+    }
+
+    .gallery-grid {
+        gap: 2px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .tab-content {
+        padding: 1rem 0.75rem;
+    }
+
+    .profile-info {
+        padding: 0.5rem 0.75rem 1.25rem;
+    }
+
+    .bookmark-card {
+        flex: 0 0 80%;
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 50%;
+    }
 }

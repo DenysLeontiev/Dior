@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Oswald:wght@500;600&display=swap');
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 body {
-    background-color: #1a1a1a;
-    /* Overall dark theme matching screenshot */
+    background-color: #171616;
     color: #ffffff;
     font-family: 'Jost', sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 #app {
@@ -30,18 +32,18 @@ body {
     padding-bottom: 5rem;
 }
 
-/* Header */
+/* ─── Header ──────────────────────────────────────────── */
 .community-header {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem) clamp(1rem, 2vw, 1.5rem);
 }
 
 .back-btn {
     position: absolute;
-    left: 2rem;
+    left: clamp(0.75rem, 3vw, 2rem);
     color: #fff;
     background: none;
     border: none;
@@ -51,6 +53,8 @@ body {
     align-items: center;
     justify-content: center;
     transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
 }
 
 .back-btn:hover {
@@ -59,18 +63,18 @@ body {
 
 .page-title {
     font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
     font-weight: 500;
     letter-spacing: 0.5px;
 }
 
-/* Tabs */
+/* ─── Tabs ────────────────────────────────────────────── */
 .tabs-container {
     display: flex;
     width: 100%;
     border-bottom: 1px solid #333;
-    margin-bottom: 2rem;
-    padding: 0 2rem;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    padding: 0 clamp(1rem, 3vw, 2rem);
 }
 
 .tab-btn {
@@ -78,14 +82,15 @@ body {
     background: none;
     border: none;
     color: #555;
-    font-size: 1.1rem;
-    padding: 1rem 0 0.8rem 0;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.75rem 0;
     cursor: pointer;
     position: relative;
     transition: color 0.2s ease;
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     letter-spacing: 0.5px;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .tab-btn:hover {
@@ -100,18 +105,16 @@ body {
     content: '';
     position: absolute;
     bottom: -1px;
-    /* Overlap border */
     left: 0;
     width: 100%;
     height: 3px;
     background-color: #ffb6c1;
-    /* Pink active line */
 }
 
-/* Tab Content */
+/* ─── Tab Content ─────────────────────────────────────── */
 .tab-content {
     display: block;
-    padding: 0 3rem;
+    padding: 0 clamp(1rem, 3vw, 3rem);
     animation: fadeIn 0.3s ease;
 }
 
@@ -129,7 +132,7 @@ body {
     }
 }
 
-/* Activity List */
+/* ─── Activity List ───────────────────────────────────── */
 .activity-list {
     list-style: none;
     display: flex;
@@ -140,8 +143,9 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 0;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
     border-bottom: 1px solid #2a2a2a;
+    gap: 0.75rem;
 }
 
 .activity-item:last-child {
@@ -151,18 +155,19 @@ body {
 .activity-left {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    gap: clamp(0.75rem, 2vw, 1.2rem);
+    min-width: 0;
 }
 
 .heart-icon {
     width: 18px;
     height: 18px;
     color: #ffb6c1;
-    /* Pink heart */
+    flex-shrink: 0;
 }
 
 .activity-text {
-    font-size: 0.95rem;
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
     font-weight: 300;
     color: #d0d0d0;
 }
@@ -175,18 +180,20 @@ body {
 .activity-right {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(0.75rem, 2vw, 2rem);
+    flex-shrink: 0;
 }
 
 .activity-time {
-    font-size: 0.85rem;
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
     color: #666;
     font-weight: 300;
+    white-space: nowrap;
 }
 
 .activity-img-wrapper {
-    width: 45px;
-    height: 45px;
+    width: clamp(36px, 6vw, 45px);
+    height: clamp(36px, 6vw, 45px);
     border-radius: 4px;
     overflow: hidden;
     flex-shrink: 0;
@@ -199,10 +206,38 @@ body {
     display: block;
 }
 
+/* ─── Empty State ─────────────────────────────────────── */
 .empty-state {
     text-align: center;
     color: #666;
     font-style: italic;
     font-weight: 300;
-    padding: 3rem 0;
+    padding: 3rem 1rem;
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .community-main {
+        padding-bottom: 4.5rem;
+    }
+
+    .activity-item {
+        padding: 0.85rem 0;
+    }
+
+    .heart-icon {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .tab-content {
+        padding: 0 0.75rem;
+    }
+
+    .tabs-container {
+        padding: 0 0.75rem;
+    }
 }
