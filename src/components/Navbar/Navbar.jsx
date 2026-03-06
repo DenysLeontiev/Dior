@@ -50,7 +50,7 @@ function Navbar() {
         <span>Home</span>
       </Link>
 
-      <a href="#" className={`nav-item ${activePage === 'catalogue' ? 'active' : ''}`}>
+      <a href="#" className={`nav-item ${activePage === 'catalogue' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); openSidebar(); }}>
         <div className="icon-container">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
