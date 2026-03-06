@@ -10,6 +10,7 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
+  base: '/Dior',
   plugins: [
     react(),
     VitePWA({
