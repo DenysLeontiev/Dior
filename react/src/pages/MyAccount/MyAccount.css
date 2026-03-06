@@ -1,0 +1,557 @@
+.account-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    padding-bottom: 5rem;
+}
+
+/* ─── Header ──────────────────────────────────────────── */
+.account-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+}
+
+.account-main .back-btn {
+    position: absolute;
+    left: clamp(0.75rem, 3vw, 1.5rem);
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
+}
+
+.account-main .page-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Profile Info ────────────────────────────────────── */
+.profile-info {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 4vw, 2.5rem);
+    gap: clamp(1rem, 3vw, 1.5rem);
+}
+
+.avatar-wrapper {
+    width: clamp(70px, 15vw, 100px);
+    height: clamp(70px, 15vw, 100px);
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #333;
+    flex-shrink: 0;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.profile-name {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.5px;
+}
+
+.fw-normal {
+    font-weight: 400;
+}
+
+.profile-role {
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    font-weight: 300;
+    color: #d0d0d0;
+}
+
+/* ─── Tabs ────────────────────────────────────────────── */
+.account-main .tabs-container {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #333;
+}
+
+.account-main .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #888;
+    padding: 0.75rem 0 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+    display: flex;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.account-main .tab-btn:hover {
+    color: #fff;
+}
+
+.account-main .tab-btn.active {
+    color: #fff;
+}
+
+.account-main .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #C4759B;
+}
+
+/* ─── Tab Content ─────────────────────────────────────── */
+.account-main .tab-content {
+    display: block;
+    padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+    animation: accountFadeIn 0.3s ease;
+}
+
+@keyframes accountFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.content-section {
+    margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.account-main .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.6rem;
+    margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+/* ─── Score Section ───────────────────────────────────── */
+.score-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(0px, 2vw, 1rem);
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.score-points {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+.points-label {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #888;
+}
+
+.points-current {
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 500;
+}
+
+.points-total {
+    font-size: clamp(0.85rem, 1.5vw, 1rem);
+    color: #666;
+    font-weight: 300;
+}
+
+.stars-row {
+    display: flex;
+    gap: 4px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.star {
+    width: clamp(14px, 2.5vw, 18px);
+    height: clamp(14px, 2.5vw, 18px);
+}
+
+.star.filled {
+    color: #C4759B;
+}
+
+.star.empty {
+    color: #444;
+}
+
+.star-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+}
+
+.star-number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* ─── Badges Section ──────────────────────────────────── */
+.badges-container {
+    display: flex;
+    gap: clamp(10px, 2vw, 15px);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    width: clamp(35px, 7vw, 45px);
+    height: clamp(35px, 7vw, 45px);
+}
+
+.badge-item.color-1 {
+    color: #8FD14F;
+}
+
+.badge-item.color-2 {
+    color: #FFD166;
+}
+
+.badge-item.color-3 {
+    color: #F4A261;
+}
+
+.badge-item.inactive {
+    color: #555;
+}
+
+/* ─── Skills Section ──────────────────────────────────── */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem);
+    padding: 0 clamp(0px, 2vw, 1rem);
+}
+
+.skill-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+.skill-name {
+    width: clamp(80px, 18vw, 140px);
+    font-size: clamp(0.75rem, 1.3vw, 0.9rem);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: #d0d0d0;
+    flex-shrink: 0;
+}
+
+.skill-progress-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 3px;
+    min-width: 0;
+}
+
+.skill-percent {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #444;
+    border-radius: 2px;
+}
+
+.skill-fill {
+    height: 100%;
+    background-color: #ffb6c1;
+    border-radius: 2px;
+}
+
+/* ─── Interests Section ───────────────────────────────── */
+.interests-container {
+    display: flex;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+    margin-bottom: 1.5rem;
+}
+
+.interest-card {
+    flex: 1;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    min-width: 0;
+}
+
+.interest-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: transform 0.3s ease;
+}
+
+.interest-card:hover img {
+    transform: scale(1.05);
+}
+
+.interest-label {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: clamp(0.7rem, 1.3vw, 0.95rem);
+    font-weight: 300;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.update-btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.update-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 10px clamp(28px, 6vw, 40px);
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.update-btn:hover {
+    transform: scale(1.02);
+}
+
+.update-btn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Bookmarks Grid ──────────────────────────────────── */
+.bookmarks-grid {
+    display: flex;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.bookmarks-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.bookmark-card {
+    flex: 0 0 calc(33.333% - 1rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    scroll-snap-align: start;
+}
+
+.bookmark-img-wrapper {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    position: relative;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.bookmark-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+}
+
+.bookmark-icon {
+    position: absolute;
+    top: -5px;
+    right: 12px;
+    width: 22px;
+    height: 30px;
+    color: #ffb6c1;
+}
+
+.bookmark-title {
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+    font-weight: 300;
+    font-style: italic;
+    color: #d0d0d0;
+}
+
+/* ─── Square Posts Variant ─────────────────────────────── */
+.square-posts .bookmark-card {
+    flex: 0 0 calc(25% - 1.125rem);
+}
+
+.square-posts .bookmark-img-wrapper {
+    aspect-ratio: 1 / 1;
+}
+
+.account-main .empty-state {
+    color: #666;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* ─── Heart Tab (Metrics + Gallery) ───────────────────── */
+.metrics-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.75rem 0 clamp(1rem, 3vw, 2rem);
+    border-bottom: 1px solid #333;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    gap: 0.5rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.metric-value {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 500;
+    margin-bottom: 0.15rem;
+}
+
+.metric-label {
+    font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+    font-weight: 600;
+    color: #fff;
+}
+
+.gallery-section {
+    width: 100%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* ─── Responsive: Tablet (≤ 768px) ────────────────────── */
+@media (max-width: 768px) {
+    .score-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .bookmark-card {
+        flex: 0 0 calc(50% - 0.5rem);
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 calc(33.333% - 0.75rem);
+    }
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .account-main {
+        padding-bottom: 4.5rem;
+    }
+
+    .interests-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .interest-card {
+        aspect-ratio: 16 / 7;
+    }
+
+    .bookmark-card {
+        flex: 0 0 70%;
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 45%;
+    }
+
+    .skill-name {
+        width: 80px;
+    }
+
+    .gallery-grid {
+        gap: 2px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .account-main .tab-content {
+        padding: 1rem 0.75rem;
+    }
+
+    .profile-info {
+        padding: 0.5rem 0.75rem 1.25rem;
+    }
+
+    .bookmark-card {
+        flex: 0 0 80%;
+    }
+
+    .square-posts .bookmark-card {
+        flex: 0 0 50%;
+    }
+}

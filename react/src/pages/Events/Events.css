@@ -1,0 +1,313 @@
+.events-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 5rem;
+}
+
+/* ─── Header ──────────────────────────────────────────── */
+.events-header {
+    padding: clamp(1rem, 3vw, 2rem) clamp(1rem, 4vw, 3rem) clamp(0.5rem, 2vw, 1rem);
+    display: flex;
+    align-items: center;
+}
+
+.events-main .back-btn {
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
+}
+
+.events-main .back-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ─── Hero Section ────────────────────────────────────── */
+.event-hero {
+    display: flex;
+    padding: 0 clamp(1rem, 4vw, 4rem);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+    align-items: center;
+}
+
+.event-image-container {
+    width: 55%;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.event-info {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.event-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.event-desc {
+    font-size: clamp(0.875rem, 1.5vw, 1.05rem);
+    font-weight: 300;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* ─── Calendar Strip ──────────────────────────────────── */
+.calendar-section {
+    width: 100%;
+    background-color: #1e1e1e;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.calendar-scroll {
+    display: flex;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+
+.calendar-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.cal-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: clamp(68px, 10vw, 90px);
+    padding: clamp(0.75rem, 2vw, 1.2rem) clamp(0.6rem, 1.5vw, 1rem);
+    border-right: 1px solid #333;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
+.cal-item:first-child {
+    border-left: 1px solid #333;
+}
+
+.cal-item:hover:not(.disabled) {
+    background-color: #2a2a2a;
+}
+
+.cal-item.active {
+    background-color: #252525;
+}
+
+.cal-item.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffb6c1;
+}
+
+.cal-item.disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+.cal-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.cal-day {
+    font-size: clamp(0.65rem, 1vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.cal-month {
+    font-size: clamp(0.55rem, 0.8vw, 0.65rem);
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Event Details ───────────────────────────────────── */
+.event-details {
+    padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 4vw, 4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.details-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.detail-text {
+    font-size: clamp(0.875rem, 1.5vw, 1.05rem);
+    font-weight: 300;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.detail-text strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+.right-align {
+    text-align: right;
+}
+
+.zoom-link {
+    color: #888;
+    text-decoration: none;
+    font-style: italic;
+    transition: color 0.2s;
+    word-break: break-all;
+}
+
+.zoom-link:hover {
+    color: #ffb6c1;
+    text-decoration: underline;
+}
+
+/* ─── Enroll Button ───────────────────────────────────── */
+.enroll-container {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.enroll-btn {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    padding: 13px clamp(36px, 8vw, 60px);
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.enroll-btn:hover {
+    transform: scale(1.03);
+    background-color: #eee;
+}
+
+.enroll-btn:active {
+    transform: scale(0.97);
+}
+
+/* ─── Responsive: Tablet (≤ 900px) ────────────────────── */
+@media (max-width: 900px) {
+    .event-hero {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .event-image-container {
+        width: 100%;
+    }
+
+    .event-info {
+        width: 100%;
+    }
+
+    .details-top {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .right-align {
+        text-align: left;
+    }
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .events-main {
+        padding-bottom: 4.5rem;
+    }
+
+    .event-hero {
+        padding: 0 1rem;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .event-title {
+        font-size: 1.15rem;
+    }
+
+    .event-desc {
+        font-size: 0.85rem;
+    }
+
+    .event-details {
+        padding: 1.25rem 1rem;
+    }
+
+    .detail-text {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .enroll-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .event-hero {
+        padding: 0 0.75rem;
+    }
+
+    .event-details {
+        padding: 1rem 0.75rem;
+    }
+
+    .cal-item {
+        min-width: 60px;
+    }
+}

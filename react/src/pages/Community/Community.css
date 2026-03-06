@@ -1,0 +1,210 @@
+.community-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+/* ─── Header ──────────────────────────────────────────── */
+.community-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem) clamp(1rem, 2vw, 1.5rem);
+}
+
+.community-main .back-btn {
+    position: absolute;
+    left: clamp(0.75rem, 3vw, 2rem);
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    padding: 4px;
+}
+
+.community-main .back-btn:hover {
+    transform: scale(1.1);
+}
+
+.community-main .page-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ─── Tabs ────────────────────────────────────────────── */
+.community-main .tabs-container {
+    display: flex;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    margin-bottom: clamp(1rem, 3vw, 2rem);
+    padding: 0 clamp(1rem, 3vw, 2rem);
+}
+
+.community-main .tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: #555;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    padding: 0.75rem 0;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s ease;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.community-main .tab-btn:hover {
+    color: #fff;
+}
+
+.community-main .tab-btn.active {
+    color: #fff;
+}
+
+.community-main .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ffb6c1;
+}
+
+/* ─── Tab Content ─────────────────────────────────────── */
+.community-main .tab-content {
+    display: block;
+    padding: 0 clamp(1rem, 3vw, 3rem);
+    animation: communityFadeIn 0.3s ease;
+}
+
+@keyframes communityFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ─── Activity List ───────────────────────────────────── */
+.activity-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(1rem, 2vw, 1.5rem) 0;
+    border-bottom: 1px solid #2a2a2a;
+    gap: 0.75rem;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-left {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 1.2rem);
+    min-width: 0;
+}
+
+.heart-icon {
+    width: 18px;
+    height: 18px;
+    color: #ffb6c1;
+    flex-shrink: 0;
+}
+
+.activity-text {
+    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    font-weight: 300;
+    color: #d0d0d0;
+}
+
+.activity-text strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+.activity-right {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 2vw, 2rem);
+    flex-shrink: 0;
+}
+
+.activity-time {
+    font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+    color: #666;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.activity-img-wrapper {
+    width: clamp(36px, 6vw, 45px);
+    height: clamp(36px, 6vw, 45px);
+    border-radius: 4px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.activity-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ─── Empty State ─────────────────────────────────────── */
+.empty-state {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    font-weight: 300;
+    padding: 3rem 1rem;
+}
+
+/* ─── Responsive: Mobile (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+    .community-main {
+        padding-bottom: 4.5rem;
+    }
+
+    .activity-item {
+        padding: 0.85rem 0;
+    }
+
+    .heart-icon {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
+@media (max-width: 360px) {
+    .community-main .tab-content {
+        padding: 0 0.75rem;
+    }
+
+    .community-main .tabs-container {
+        padding: 0 0.75rem;
+    }
+}

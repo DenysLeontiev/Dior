@@ -1,0 +1,110 @@
+# React + Vite Migration — Dior & I
+
+Rewrite the entire vanilla HTML/CSS/JS Dior application as a React (JS) app using Vite, preserving all existing UI, responsive CSS, and functionality.
+
+## User Review Required
+
+> [!IMPORTANT]
+> The new React project will be created in `c:\Users\User\Desktop\Dior\dior-react\`. The original vanilla files will remain untouched. Let me know if you'd prefer a different location.
+
+> [!IMPORTANT]
+> All existing CSS will be reused as-is (CSS Modules or plain imports). No CSS framework will be introduced unless requested.
+
+## Proposed Changes
+
+### Project Setup
+
+#### [NEW] `dior-react/` — Vite + React scaffold
+
+- `npx -y create-vite@latest ./ --template react` inside `dior-react/`
+- Install `react-router-dom` for client-side routing
+- Remove Vite's default boilerplate (App.css content, assets, etc.)
+
+---
+
+### Routing & Layout
+
+#### [NEW] [main.jsx](file:///c:/Users/User/Desktop/Dior/dior-react/src/main.jsx)
+- React entry point, renders `<BrowserRouter>` wrapping `<App />`
+
+#### [NEW] [App.jsx](file:///c:/Users/User/Desktop/Dior/dior-react/src/App.jsx)
+- Route definitions using `react-router-dom`:
+  - `/` → `<Login />`
+  - `/terms` → `<TermsOfUse />`
+  - `/add-profile-picture` → `<AddProfilePicture />`
+  - `/home` → `<MainLayout><Home /></MainLayout>`
+  - `/events` → `<MainLayout><Events /></MainLayout>`
+  - `/community` → `<MainLayout><Community /></MainLayout>`
+  - `/notifications` → `<MainLayout><Notifications /></MainLayout>`
+  - `/my-account` → `<MainLayout><MyAccount /></MainLayout>`
+
+#### [NEW] [MainLayout.jsx](file:///c:/Users/User/Desktop/Dior/dior-react/src/layouts/MainLayout.jsx)
+- Wraps pages that show the navbar: renders `<Navbar />` + `<Outlet />`
+
+---
+
+### Shared Components
+
+#### [NEW] [Navbar.jsx](file:///c:/Users/User/Desktop/Dior/dior-react/src/components/Navbar/Navbar.jsx)
+- Converted from the Web Component `DiorNavbar`
+- Uses `useLocation()` to determine active tab
+- Renders both desktop top nav and mobile bottom nav
+- Contains sidebar state (open/close) with `useState`
+
+#### [NEW] [Navbar.css](file:///c:/Users/User/Desktop/Dior/dior-react/src/components/Navbar/Navbar.css)
+- Direct copy of existing `navbar.css` (already responsive), removing `:host` selector
+
+---
+
+### Pages (1 file per page + its CSS)
+
+| Page | Component file | CSS file (copied from existing) |
+|------|---------------|------|
+| Login | `src/pages/Login/Login.jsx` | `Login.css` |
+| Terms of Use | `src/pages/TermsOfUse/TermsOfUse.jsx` | `TermsOfUse.css` |
+| Add Profile Picture | `src/pages/AddProfilePicture/AddProfilePicture.jsx` | `AddProfilePicture.css` |
+| Home | `src/pages/Home/Home.jsx` | `Home.css` |
+| Events | `src/pages/Events/Events.jsx` | `Events.css` |
+| Community | `src/pages/Community/Community.jsx` | `Community.css` |
+| Notifications | `src/pages/Notifications/Notifications.jsx` | `Notifications.css` |
+| My Account | `src/pages/MyAccount/MyAccount.jsx` | `MyAccount.css` |
+
+Each page:
+- Converts HTML to JSX (class → className, onclick → onClick, etc.)
+- Converts JS event logic to React state (`useState`, `useRef`)
+- Imports its CSS file directly
+- Uses `useNavigate()` instead of `window.location.href`
+
+---
+
+### Static Assets
+
+#### `dior-react/public/images/`
+- Copy `dior.png`, `user-silhouette.svg`, `delete.png`, `triangleGreyUp.png`, `triangleGreyDown.png`, `checkbox.png`, `checkboxEmpty.png` — only the images actually referenced
+
+---
+
+### Global Styles
+
+#### [NEW] [index.css](file:///c:/Users/User/Desktop/Dior/dior-react/src/index.css)
+- Global reset, font import (Jost, Oswald), body background/color
+- Shared once — individual page CSS files handle page-specific styles
+
+---
+
+## Verification Plan
+
+### Automated
+- `npm run dev` — verify Vite dev server starts without errors
+- `npm run build` — verify production build completes without errors
+
+### Manual Verification
+1. Open `http://localhost:5173/` in a browser → should show Login page
+2. Click "Enter" → navigate to Terms of Use
+3. Check both confirmations, click "Validate" → navigate to Add Profile Picture
+4. Click "Later" → navigate to Home
+5. Verify navbar shows with correct active tab highlighting
+6. Click through each navbar tab (Events, Community, Notifications, My Account) — each page should render correctly
+7. Open hamburger menu → sidebar should slide in, click backdrop to close
+8. Resize browser to mobile width → verify bottom tab bar appears, hero stacks, cards scroll horizontally
+9. On My Account page: switch between profile tab and heart tab
