@@ -47,7 +47,7 @@ function TermsOfUse() {
   return (
     <div className="terms-wrapper">
       <header className="terms-header">
-        <img src="/images/dior.png" alt="Dior &amp; I" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="logo" />
       </header>
 
       <main className="terms-main">
@@ -59,13 +59,13 @@ function TermsOfUse() {
               <button className="accordion-header" onClick={() => toggleAccordion(index)}>
                 <span>{item.title}</span>
                 <img
-                  src="/images/triangleGreyUp.png"
+                  src={`${import.meta.env.BASE_URL}images/triangleGreyUp.png`}
                   alt="collapse"
                   className="icon-up"
                   style={{ display: activeItems.includes(index) ? 'block' : 'none' }}
                 />
                 <img
-                  src="/images/triangleGreyDown.png"
+                  src={`${import.meta.env.BASE_URL}images/triangleGreyDown.png`}
                   alt="expand"
                   className="icon-down"
                   style={{ display: activeItems.includes(index) ? 'none' : 'block' }}

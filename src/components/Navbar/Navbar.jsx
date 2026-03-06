@@ -97,7 +97,7 @@ function Navbar() {
 
       <Link to="/my-account" className={`nav-item ${activePage === 'account' ? 'active' : ''}`}>
         <div className="icon-container account-img-container">
-          <img src="/images/user-silhouette.svg" alt="User" className="account-img" />
+          <img src={`${import.meta.env.BASE_URL}images/user-silhouette.svg`} alt="User" className="account-img" />
         </div>
         <span>My account</span>
       </Link>
@@ -108,7 +108,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="nav-left">
-          <img src="/images/dior.png" alt="Dior &amp; I" className="dior-logo" />
+          <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="dior-logo" />
         </div>
 
         <div className="nav-center">

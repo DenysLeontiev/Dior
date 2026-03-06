@@ -11,7 +11,7 @@ function Login() {
   return (
     <div className="login-wrapper">
       <header className="login-header">
-        <img src="/images/dior.png" alt="Dior &amp; I" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="logo" />
 
         <div className="language-dropdown-container">
           <select className="language-select" aria-label="Select language">

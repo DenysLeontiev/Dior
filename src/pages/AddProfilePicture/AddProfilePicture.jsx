@@ -42,7 +42,7 @@ function AddProfilePicture() {
   return (
     <div className="profile-wrapper">
       <header className="profile-header">
-        <img src="/images/dior.png" alt="Dior &amp; I" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="logo" />
       </header>
 
       <main className="profile-main">
@@ -58,7 +58,7 @@ function AddProfilePicture() {
           onKeyDown={handleKeyDown}
         >
           <div className="avatar-placeholder" ref={placeholderRef}>
-            <img src="/images/user-silhouette.svg" alt="" className="avatar-icon" aria-hidden="true" />
+            <img src={`${import.meta.env.BASE_URL}images/user-silhouette.svg`} alt="" className="avatar-icon" aria-hidden="true" />
           </div>
           <input
             type="file"

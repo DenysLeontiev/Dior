@@ -53,7 +53,7 @@ function Notifications() {
             </div>
             <div className="notification-action">
               <button className="icon-btn delete-btn" onClick={() => deleteNotification(notif.id)}>
-                <img src="/images/delete.png" alt="Delete" className="delete-icon" />
+                <img src={`${import.meta.env.BASE_URL}images/delete.png`} alt="Delete" className="delete-icon" />
               </button>
             </div>
           </div>
