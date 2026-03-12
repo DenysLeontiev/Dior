@@ -1,0 +1,110 @@
+/* ─── Page Wrapper ────────────────────────────────────── */
+.score-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #111;
+  position: relative;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.5rem, 6vw, 2rem);
+  box-sizing: border-box;
+}
+
+/* ─── Back Button ─────────────────────────────────────── */
+.score-back-btn {
+  position: absolute;
+  top: clamp(1rem, 3vh, 1.75rem);
+  left: clamp(1rem, 4vw, 1.75rem);
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.2s ease;
+}
+
+.score-back-btn:hover {
+  opacity: 0.65;
+}
+
+/* ─── Main Content ────────────────────────────────────── */
+.score-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(0.6rem, 2vh, 1.1rem);
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* ─── "You are" text ─────────────────────────────────── */
+.score-you-are {
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.25rem;
+}
+
+/* ─── Big number ──────────────────────────────────────── */
+.score-number-block {
+  line-height: 1;
+}
+
+.score-big-number {
+  font-size: clamp(6rem, 22vw, 11rem);
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+  letter-spacing: -2px;
+  display: block;
+  line-height: 0.95;
+}
+
+/* ─── Labels below number ─────────────────────────────── */
+.score-points-label {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.score-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+.score-cta {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  color: #fff;
+  letter-spacing: 0.3px;
+}
+
+/* ─── Pink Star ───────────────────────────────────────── */
+.score-star-icon {
+  width: clamp(48px, 12vw, 72px);
+  height: clamp(48px, 12vw, 72px);
+  color: #C4759B;
+  margin-top: 0.5rem;
+}
+
+.score-star-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Responsive ──────────────────────────────────────── */
+@media (max-width: 360px) {
+  .score-big-number {
+    font-size: 5rem;
+  }
+}

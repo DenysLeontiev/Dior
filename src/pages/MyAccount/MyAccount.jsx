@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './MyAccount.css'
 
 function MyAccount() {
+  const navigate = useNavigate()
   const [activeTab, setActiveTab] = useState('profile')
 
   const skills = [
@@ -64,8 +65,8 @@ function MyAccount() {
       {activeTab === 'profile' && (
         <div className="tab-content">
           {/* SCORE */}
-          <section className="content-section">
-            <h3 className="section-title">SCORE</h3>
+          <section className="content-section score-section-clickable" onClick={() => navigate('/score')}>
+            <h3 className="section-title section-title--arrow">SCORE</h3>
             <div className="score-container">
               <div className="score-points">
                 <span className="points-label">POINTS</span>
@@ -96,17 +97,81 @@ function MyAccount() {
           </section>
 
           {/* BADGES */}
-          <section className="content-section">
-            <h3 className="section-title">BADGES</h3>
+          <section className="content-section badges-section-clickable" onClick={() => navigate('/badge')}>
+            <h3 className="section-title section-title--arrow">BADGES</h3>
             <div className="badges-container">
-              {['color-1', 'color-2', 'color-3', 'inactive', 'inactive'].map((cls, i) => (
-                <div key={i} className={`badge-item ${cls}`}>
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-10-10A10 10 0 0 1 12 2m0-2a12 12 0 1 0 12 12A12 12 0 0 0 12 0z" />
-                  </svg>
-                </div>
-              ))}
+              {/* Badge 1: Phone / Digital – colored ring */}
+              <div className="badge-circle badge-earned badge-red-blue">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" stroke="url(#g1)" strokeWidth="2.5" fill="#0d1535" />
+                  <defs>
+                    <linearGradient id="g1" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                      <stop stopColor="#e05" /><stop offset="1" stopColor="#30f" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="16" y="12" width="16" height="24" rx="2" stroke="#e8a87c" strokeWidth="1.8" fill="none"/>
+                  <circle cx="24" cy="31" r="1.5" fill="#e8a87c"/>
+                  <line x1="20" y1="16" x2="28" y2="16" stroke="#e8a87c" strokeWidth="1.5"/>
+                  <circle cx="32" cy="30" r="5" fill="none" stroke="#e8a87c" strokeWidth="1.5"/>
+                  <line x1="30" y1="28" x2="34" y2="32" stroke="#e8a87c" strokeWidth="1.2"/>
+                </svg>
+              </div>
+
+              {/* Badge 2: Stars ring – colored */}
+              <div className="badge-circle badge-earned badge-navy-gold">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="#0a1245" />
+                  {[0,1,2,3,4,5,6,7].map((i) => {
+                    const angle = (i * 45 - 90) * Math.PI / 180
+                    const cx = 24 + 17 * Math.cos(angle)
+                    const cy = 24 + 17 * Math.sin(angle)
+                    return <polygon key={i} points="0,-4 1,-1 4,-1 2,1 3,4 0,2 -3,4 -2,1 -4,-1 -1,-1" fill="#e8a240" transform={`translate(${cx},${cy})`} />
+                  })}
+                  <circle cx="24" cy="24" r="10" fill="none" stroke="#4a5296" strokeWidth="1.5"/>
+                  {[0,1,2,3,4,5,6,7].map((i) => {
+                    const angle = (i * 45 - 90) * Math.PI / 180
+                    const cx = 24 + 10 * Math.cos(angle)
+                    const cy = 24 + 10 * Math.sin(angle)
+                    return <polygon key={i} points="0,-3 1,0.8 3.8,0.8 1.8,2.5 2.5,5.2 0,3.5 -2.5,5.2 -1.8,2.5 -3.8,0.8 -1,0.8" fill="#e8a240" transform={`translate(${cx},${cy})`} />
+                  })}
+                </svg>
+              </div>
+
+              {/* Badge 3: Trophy large – dark/inactive */}
+              <div className="badge-circle badge-inactive badge-faceted">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="#252525" stroke="#444" strokeWidth="1.5"/>
+                  <path d="M17 14h14v10a7 7 0 0 1-14 0V14z" stroke="#888" strokeWidth="1.8" fill="#1e1e1e"/>
+                  <path d="M17 18c-2 0-4 1-4 4s2 4 4 4" stroke="#888" strokeWidth="1.5" fill="none"/>
+                  <path d="M31 18c2 0 4 1 4 4s-2 4-4 4" stroke="#888" strokeWidth="1.5" fill="none"/>
+                  <line x1="24" y1="31" x2="24" y2="36" stroke="#888" strokeWidth="1.5"/>
+                  <line x1="18" y1="36" x2="30" y2="36" stroke="#888" strokeWidth="1.5"/>
+                </svg>
+              </div>
+
+              {/* Badge 4: Trophy medium – bright inactive */}
+              <div className="badge-circle badge-inactive-bright badge-faceted">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="#2a2a2a" stroke="#555" strokeWidth="1.5"/>
+                  <path d="M17 14h14v10a7 7 0 0 1-14 0V14z" stroke="#ccc" strokeWidth="1.8" fill="#222"/>
+                  <path d="M17 18c-2 0-4 1-4 4s2 4 4 4" stroke="#ccc" strokeWidth="1.5" fill="none"/>
+                  <path d="M31 18c2 0 4 1 4 4s-2 4-4 4" stroke="#ccc" strokeWidth="1.5" fill="none"/>
+                  <line x1="24" y1="31" x2="24" y2="36" stroke="#ccc" strokeWidth="1.5"/>
+                  <line x1="18" y1="36" x2="30" y2="36" stroke="#ccc" strokeWidth="1.5"/>
+                </svg>
+              </div>
+
+              {/* Badge 5: Trophy small – lightest inactive */}
+              <div className="badge-circle badge-inactive-faint badge-faceted">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="#2f2f2f" stroke="#666" strokeWidth="1.5"/>
+                  <path d="M18 15h12v9a6 6 0 0 1-12 0V15z" stroke="#aaa" strokeWidth="1.6" fill="#252525"/>
+                  <path d="M18 19c-1.5 0-3 1-3 3.5s1.5 3.5 3 3.5" stroke="#aaa" strokeWidth="1.4" fill="none"/>
+                  <path d="M30 19c1.5 0 3 1 3 3.5s-1.5 3.5-3 3.5" stroke="#aaa" strokeWidth="1.4" fill="none"/>
+                  <line x1="24" y1="30" x2="24" y2="35" stroke="#aaa" strokeWidth="1.4"/>
+                  <line x1="19" y1="35" x2="29" y2="35" stroke="#aaa" strokeWidth="1.4"/>
+                </svg>
+              </div>
             </div>
           </section>
 

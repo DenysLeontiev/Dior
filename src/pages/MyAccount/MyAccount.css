@@ -215,34 +215,64 @@
     color: #fff;
 }
 
+/* ─── Clickable Sections (Score & Badges) ─────────────── */
+.score-section-clickable,
+.badges-section-clickable {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.score-section-clickable:hover,
+.badges-section-clickable:hover {
+    opacity: 0.85;
+}
+
+.section-title--arrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title--arrow::after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #888;
+    border-right: 2px solid #888;
+    transform: rotate(45deg) translateY(-2px);
+    margin-right: 2px;
+    flex-shrink: 0;
+}
+
 /* ─── Badges Section ──────────────────────────────────── */
 .badges-container {
     display: flex;
-    gap: clamp(10px, 2vw, 15px);
+    gap: clamp(8px, 2.5vw, 16px);
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0.25rem 0;
 }
 
-.badge-item {
-    width: clamp(35px, 7vw, 45px);
-    height: clamp(35px, 7vw, 45px);
+.badge-circle {
+    width: clamp(48px, 12vw, 68px);
+    height: clamp(48px, 12vw, 68px);
+    flex-shrink: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.2s ease;
 }
 
-.badge-item.color-1 {
-    color: #8FD14F;
+.badge-circle svg {
+    width: 100%;
+    height: 100%;
 }
 
-.badge-item.color-2 {
-    color: #FFD166;
+.badge-circle:hover {
+    transform: scale(1.08);
 }
 
-.badge-item.color-3 {
-    color: #F4A261;
-}
-
-.badge-item.inactive {
-    color: #555;
-}
 
 /* ─── Skills Section ──────────────────────────────────── */
 .skills-container {

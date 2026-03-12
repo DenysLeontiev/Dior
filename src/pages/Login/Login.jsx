@@ -5,7 +5,7 @@ function Login() {
   const navigate = useNavigate()
 
   const handleEnter = () => {
-    navigate('/terms')
+    navigate('/register')
   }
 
   return (

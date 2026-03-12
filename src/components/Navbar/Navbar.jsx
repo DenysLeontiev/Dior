@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const getActivePage = () => {
@@ -157,7 +158,17 @@ function Navbar() {
         <ul className="sidebar-nav-list">
           {['CULTURE & HERITAGE', 'PRODUCTS', 'LEADERSHIP', 'SECURITY', 'IT'].map((item) => (
             <li key={item}>
-              <a href="#" className="sidebar-link">
+              <a
+                href="#"
+                className="sidebar-link"
+                onClick={(e) => {
+                  e.preventDefault()
+                  if (item === 'LEADERSHIP') {
+                    closeSidebar()
+                    navigate('/staff-training')
+                  }
+                }}
+              >
                 <span>{item}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
               </a>

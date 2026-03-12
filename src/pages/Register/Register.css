@@ -1,0 +1,214 @@
+/* ─── Wrapper ─────────────────────────────────────────── */
+.register-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: clamp(1.5rem, 5vw, 2.5rem) clamp(1.25rem, 6vw, 2rem);
+  margin: 0 auto;
+  min-height: 100vh;
+  justify-content: center;
+  position: relative;
+}
+
+/* ─── Back Button ─────────────────────────────────────── */
+.back-btn {
+  position: absolute;
+  top: clamp(1rem, 3vh, 1.5rem);
+  left: clamp(1rem, 4vw, 1.5rem);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  padding: 4px 0;
+  transition: opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn:hover {
+  opacity: 0.7;
+}
+
+/* ─── Header / Logo ───────────────────────────────────── */
+.register-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 7vh, 4rem);
+  width: 100%;
+}
+
+.register-logo {
+  width: clamp(160px, 50vw, 220px);
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* ─── Main ────────────────────────────────────────────── */
+.register-main {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vh, 2.25rem);
+  width: 100%;
+  align-items: center;
+}
+
+/* ─── Role Selector ───────────────────────────────────── */
+.role-selector {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 4px;
+  gap: 4px;
+}
+
+.role-btn {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 26px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+  letter-spacing: 0.3px;
+}
+
+.role-btn.active {
+  background: #fff;
+  color: #000;
+}
+
+.role-btn:not(.active):hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ─── Field Containers ────────────────────────────────── */
+.register-field-container {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* ─── Language Dropdown ───────────────────────────────── */
+.register-wrapper .language-dropdown-container {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.register-wrapper .language-select {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 8px 24px 8px 0;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.register-wrapper .language-select option {
+  background: #171616;
+  color: #fff;
+}
+
+.register-wrapper .dropdown-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* ─── Email Input ─────────────────────────────────────── */
+.email-input {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 0;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.email-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.email-input:focus {
+  border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Action Button ───────────────────────────────────── */
+.register-action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(0.5rem, 2vh, 1rem);
+}
+
+.register-wrapper .btn {
+  width: 100%;
+  max-width: 280px;
+  padding: 13px 24px;
+  border-radius: 30px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.register-wrapper .btn:hover {
+  opacity: 0.88;
+  transform: scale(1.02);
+}
+
+.register-wrapper .btn:active {
+  transform: scale(0.97);
+}
+
+/* ─── Responsive ──────────────────────────────────────── */
+@media (max-width: 360px) {
+  .register-wrapper {
+    padding: 1.25rem 1rem;
+  }
+
+  .register-wrapper .btn {
+    max-width: 100%;
+  }
+
+  .role-selector {
+    max-width: 100%;
+  }
+
+  .register-field-container {
+    max-width: 100%;
+  }
+}
