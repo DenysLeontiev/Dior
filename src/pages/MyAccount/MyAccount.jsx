@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { getDiorImage } from '../../utils/getDiorImage'
 import './MyAccount.css'
 
 function MyAccount() {
@@ -30,7 +31,7 @@ function MyAccount() {
       {/* Profile Info */}
       <div className="profile-info">
         <div className="avatar-wrapper">
-          <img src="https://picsum.photos/100/100?random=10" alt="Avatar" className="avatar-img" />
+          <img src={getDiorImage(10)} alt="Avatar" className="avatar-img" />
         </div>
         <div className="profile-details">
           <h2 className="profile-name"><span className="fw-normal">Mathieu</span> FERNEZ</h2>
@@ -203,7 +204,7 @@ function MyAccount() {
                 { label: 'Software', img: 13 }
               ].map((interest, i) => (
                 <div className="interest-card" key={i}>
-                  <img src={`https://picsum.photos/300/200?random=${interest.img}`} alt={interest.label} />
+                  <img src={getDiorImage(interest.img)} alt={interest.label} />
                   <span className="interest-label">{interest.label}</span>
                 </div>
               ))}
@@ -219,7 +220,7 @@ function MyAccount() {
             <div className="bookmarks-grid">
               <div className="bookmark-card">
                 <div className="bookmark-img-wrapper">
-                  <img src="https://picsum.photos/300/200?random=14" alt="Training" />
+                  <img src={getDiorImage(14)} alt="Training" />
                   <div className="bookmark-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -241,7 +242,7 @@ function MyAccount() {
               ].map((bm, i) => (
                 <div className="bookmark-card" key={i}>
                   <div className="bookmark-img-wrapper">
-                    <img src={`https://picsum.photos/300/200?random=${bm.img}`} alt={`Event ${i + 1}`} />
+                    <img src={getDiorImage(bm.img)} alt={`Event ${i + 1}`} />
                     <div className="bookmark-icon">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -271,7 +272,7 @@ function MyAccount() {
               {[18, 19, 20].map((num) => (
                 <div className="bookmark-card square" key={num}>
                   <div className="bookmark-img-wrapper">
-                    <img src={`https://picsum.photos/250/250?random=${num}`} alt={`Post ${num - 17}`} />
+                    <img src={getDiorImage(num)} alt={`Post ${num - 17}`} />
                     <div className="bookmark-icon square-icon">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -306,7 +307,7 @@ function MyAccount() {
             <div className="gallery-grid">
               {[21, 22, 23, 24, 25, 26, 27, 28].map((num) => (
                 <div className="gallery-item" key={num}>
-                  <img src={`https://picsum.photos/300/300?random=${num}`} alt={`Gallery Image ${num - 20}`} />
+                  <img src={getDiorImage(num)} alt={`Gallery Image ${num - 20}`} />
                 </div>
               ))}
             </div>

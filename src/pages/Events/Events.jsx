@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getDiorImage } from '../../utils/getDiorImage'
 import './Events.css'
 
 function Events() {
@@ -43,7 +44,7 @@ function Events() {
       {/* Hero/Details Section */}
       <section className="event-hero">
         <div className="event-image-container">
-          <img src="https://picsum.photos/800/500?random=30" alt="Event Image" className="event-img" />
+          <img src={getDiorImage(30)} alt="Event Image" className="event-img" />
         </div>
         <div className="event-info">
           <h1 className="event-title">Digital in Asia: Livestreaming</h1>

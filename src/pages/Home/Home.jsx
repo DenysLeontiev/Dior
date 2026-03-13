@@ -1,6 +1,7 @@
 import { useRef } from 'react'
-import './Home.css'
 import { useState } from 'react'
+import { getDiorImage } from '../../utils/getDiorImage'
+import './Home.css'
 
 /* ─── Shared Section Component ─────────────────────────── */
 function CarouselSection({ index, title, collapsedSections, toggleSection, children }) {
@@ -87,7 +88,7 @@ function Home() {
         <div className="hero-carousel">
           <div className="hero-slide active">
             <div className="hero-image-container">
-              <img src="https://picsum.photos/800/600?random=1" alt="Featured article" />
+              <img src={getDiorImage(1)} alt="Featured article" />
             </div>
             <div className="hero-content">
               <h1 className="hero-title">Lorem Ipsum Dior</h1>
@@ -150,7 +151,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
               </div>
               <div className="card-progress-bar">
                 <div className="card-progress-fill" style={{ width: `${card.progress}%` }}></div>
@@ -173,7 +174,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <InfoIcon />
@@ -193,7 +194,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card card--journey" key={i}>
               <div className="card-image-wrapper card-image-wrapper--journey">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
                 <div className="journey-progress-bar">
                   <div className="journey-progress-fill" style={{ width: `${card.progress}%` }}></div>
                 </div>
@@ -215,7 +216,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <div className="card-event-meta">
@@ -263,7 +264,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
                 <span className="card-tag">{card.tag}</span>
               </div>
               <h3 className="card-title">{card.title}</h3>
@@ -284,7 +285,7 @@ function Home() {
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <InfoIcon />
@@ -305,7 +306,7 @@ function Home() {
           ].map((card, i) => (
             <div className={`card card--top10 ${card.dimmed ? 'card--dimmed' : ''}`} key={i}>
               <div className="card-image-wrapper top10-image-wrapper">
-                <img src={`https://picsum.photos/400/300?random=${card.img}`} alt={card.title} />
+                <img src={getDiorImage(card.img)} alt={card.title} />
                 <span className="top10-rank">{card.rank}.</span>
               </div>
               <h3 className="card-title card-title--top10">{card.title}</h3>

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { getDiorImage } from '../../utils/getDiorImage'
 import './StaffTraining.css'
 
 const sections = [
@@ -9,21 +10,21 @@ const sections = [
       {
         id: 11,
         label: 'Welcome at Parfums Christian Dior',
-        img: 'https://picsum.photos/400/260?random=31',
+        img: getDiorImage(31),
         progress: 100,
         locked: false
       },
       {
         id: 12,
         label: 'Remote work @ Parfums Christian Dior',
-        img: 'https://picsum.photos/400/260?random=32',
+        img: getDiorImage(32),
         progress: 60,
         locked: false
       },
       {
         id: 13,
         label: 'All about Parfums Christian Dior',
-        img: 'https://picsum.photos/400/260?random=33',
+        img: getDiorImage(33),
         progress: 20,
         locked: false
       }
@@ -36,21 +37,21 @@ const sections = [
       {
         id: 21,
         label: 'Dior Heritage & Culture',
-        img: 'https://picsum.photos/400/260?random=34',
+        img: getDiorImage(34),
         progress: 45,
         locked: false
       },
       {
         id: 22,
         label: 'The Dior Universe',
-        img: 'https://picsum.photos/400/260?random=35',
+        img: getDiorImage(35),
         progress: 0,
         locked: false
       },
       {
         id: 23,
         label: 'Leadership at Dior',
-        img: 'https://picsum.photos/400/260?random=36',
+        img: getDiorImage(36),
         progress: 0,
         locked: false
       }
@@ -63,14 +64,14 @@ const sections = [
       {
         id: 31,
         label: 'Product knowledge essentials',
-        img: 'https://picsum.photos/400/260?random=37',
+        img: getDiorImage(37),
         progress: 0,
         locked: false
       },
       {
         id: 32,
         label: 'Digital tools & innovation',
-        img: 'https://picsum.photos/400/260?random=38',
+        img: getDiorImage(38),
         progress: 0,
         locked: false
       }
@@ -83,7 +84,7 @@ const sections = [
       {
         id: 41,
         label: 'What management style do you have?',
-        img: 'https://picsum.photos/400/260?random=39',
+        img: getDiorImage(39),
         progress: 0,
         locked: true
       }
@@ -171,7 +172,7 @@ function StaffTraining() {
         <div className="st-hero-body">
           <div className="st-hero-img-wrap">
             <img
-              src="https://picsum.photos/560/360?random=40"
+              src={getDiorImage(40)}
               alt="Digital Path"
               className="st-hero-img"
             />
@@ -198,7 +199,7 @@ function StaffTraining() {
           <TrainingCard item={{
             id: 0,
             label: 'Evaluate your DIGITAL SKILLS before starting your path!',
-            img: 'https://picsum.photos/400/260?random=41',
+            img: getDiorImage(41),
             progress: 100,
             locked: false
           }} />
@@ -224,7 +225,7 @@ function StaffTraining() {
           <TrainingCard item={{
             id: 99,
             label: 'Validate all your DIGITAL SKILLS at the end of your path!',
-            img: 'https://picsum.photos/400/260?random=42',
+            img: getDiorImage(42),
             progress: 0,
             locked: false
           }} />

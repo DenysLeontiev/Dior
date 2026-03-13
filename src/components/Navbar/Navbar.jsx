@@ -2,10 +2,66 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 
+// ─── Submenu data ────────────────────────────────────────────────────────────
+const MENU_ITEMS = [
+  {
+    id: 'culture',
+    label: 'CULTURE & HERITAGE',
+    subItems: [
+      { label: 'The Dior Legacy' },
+      { label: 'Iconic Campaigns' },
+      { label: 'Maison des Rêves' },
+    ],
+  },
+  {
+    id: 'products',
+    label: 'PRODUCTS',
+    subItems: [
+      { label: 'Haute Couture' },
+      { label: 'Prêt-à-Porter' },
+      { label: 'Beauty & Parfums' },
+      { label: 'Accessories' },
+    ],
+  },
+  {
+    id: 'leadership',
+    label: 'LEADERSHIP',
+    subItems: [
+      {
+        label: 'Digital Path',
+        route: '/staff-training',
+      },
+      {
+        label: 'My Learning Journey',
+        route: '/learning-journey',
+      },
+    ],
+  },
+  {
+    id: 'security',
+    label: 'SECURITY',
+    subItems: [
+      { label: 'Data Protection' },
+      { label: 'Cyber Essentials' },
+      { label: 'Physical Security' },
+    ],
+  },
+  {
+    id: 'it',
+    label: 'IT',
+    subItems: [
+      { label: 'Tools & Systems' },
+      { label: 'Helpdesk' },
+      { label: 'Software Guides' },
+    ],
+  },
+]
+
 function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState(null) // which top-level item is expanded
 
   const getActivePage = () => {
     const path = location.pathname
@@ -21,23 +77,33 @@ function Navbar() {
 
   const openSidebar = () => {
     setSidebarOpen(true)
+    setActiveMenu(null)
     document.body.style.overflow = 'hidden'
   }
 
   const closeSidebar = () => {
     setSidebarOpen(false)
+    setActiveMenu(null)
     document.body.style.overflow = ''
+  }
+
+  const goBack = () => {
+    setActiveMenu(null)
   }
 
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && sidebarOpen) {
-        closeSidebar()
+        if (activeMenu) {
+          goBack()
+        } else {
+          closeSidebar()
+        }
       }
     }
     document.addEventListener('keydown', handleEscape)
     return () => document.removeEventListener('keydown', handleEscape)
-  }, [sidebarOpen])
+  }, [sidebarOpen, activeMenu])
 
   const navItems = (
     <>
@@ -105,11 +171,13 @@ function Navbar() {
     </>
   )
 
+  const activeMenuData = MENU_ITEMS.find((m) => m.id === activeMenu)
+
   return (
     <>
       <nav className="navbar">
         <div className="nav-left">
-          <img src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`} alt="Dior &amp; I" className="dior-logo" />
+          <img src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`} alt="Dior & I" className="dior-logo" />
         </div>
 
         <div className="nav-center">
@@ -145,36 +213,73 @@ function Navbar() {
       ></div>
 
       <div className={`sidebar-menu ${sidebarOpen ? 'open' : ''}`}>
-        <div className="sidebar-header">
-          <h2 className="sidebar-title">CATALOGUE</h2>
-          <button className="close-btn" aria-label="Close menu" onClick={closeSidebar}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
+        {/* ── Main list panel ── */}
+        <div className={`sidebar-panel sidebar-panel-main ${activeMenu ? 'slide-out' : ''}`}>
+          <div className="sidebar-header">
+            <h2 className="sidebar-title">MENU</h2>
+            <button className="close-btn" aria-label="Close menu" onClick={closeSidebar}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <ul className="sidebar-nav-list">
+            {MENU_ITEMS.map((item) => (
+              <li key={item.id}>
+                <button
+                  className="sidebar-link"
+                  onClick={() => setActiveMenu(item.id)}
+                >
+                  <span>{item.label}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <ul className="sidebar-nav-list">
-          {['CULTURE & HERITAGE', 'PRODUCTS', 'LEADERSHIP', 'SECURITY', 'IT'].map((item) => (
-            <li key={item}>
-              <a
-                href="#"
-                className="sidebar-link"
-                onClick={(e) => {
-                  e.preventDefault()
-                  if (item === 'LEADERSHIP') {
-                    closeSidebar()
-                    navigate('/staff-training')
-                  }
-                }}
-              >
-                <span>{item}</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* ── Submenu panel ── */}
+        <div className={`sidebar-panel sidebar-panel-sub ${activeMenu ? 'slide-in' : ''}`}>
+          <div className="sidebar-header">
+            <button className="back-btn" aria-label="Go back" onClick={goBack}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <h2 className="sidebar-title">{activeMenuData?.label}</h2>
+            <button className="close-btn" aria-label="Close menu" onClick={closeSidebar}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+
+          <ul className="sidebar-nav-list">
+            {activeMenuData?.subItems.map((sub, i) => (
+              <li key={i}>
+                <button
+                  className="sidebar-link"
+                  onClick={() => {
+                    if (sub.route) {
+                      closeSidebar()
+                      navigate(sub.route)
+                    }
+                  }}
+                >
+                  <span>{sub.label}</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   )

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getDiorImage } from '../../utils/getDiorImage'
 import './Community.css'
 
 function Community() {
@@ -60,7 +61,7 @@ function Community() {
                 <div className="activity-right">
                   <span className="activity-time">{activity.time}</span>
                   <div className="activity-img-wrapper">
-                    <img src={`https://picsum.photos/100/100?random=${activity.img}`} alt="Post thumbnail" />
+                    <img src={getDiorImage(activity.img)} alt="Post thumbnail" />
                   </div>
                 </div>
               </li>

@@ -7,6 +7,7 @@ import AddProfilePicture from './pages/AddProfilePicture/AddProfilePicture'
 import ScoreComponent from './pages/ScoreComponent/ScoreComponent'
 import BadgeComponent from './pages/BadgeComponent/BadgeComponent'
 import StaffTraining from './pages/StaffTraining/StaffTraining'
+import LearningJourney from './pages/LearningJourney/LearningJourney'
 import Home from './pages/Home/Home'
 import Events from './pages/Events/Events'
 import Community from './pages/Community/Community'
@@ -22,6 +23,7 @@ function App() {
       <Route path="/add-profile-picture" element={<AddProfilePicture />} />
       <Route path="/score" element={<ScoreComponent />} />
       <Route path="/badge" element={<BadgeComponent />} />
+      <Route path="/learning-journey" element={<LearningJourney />} />
       <Route element={<MainLayout />}>
         <Route path="/home" element={<Home />} />
         <Route path="/events" element={<Events />} />

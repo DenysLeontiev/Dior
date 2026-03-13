@@ -181,7 +181,7 @@
     visibility: visible;
 }
 
-/* ─── Sidebar Menu ────────────────────────────────────── */
+/* ─── Sidebar Menu (outer shell) ──────────────────────── */
 .sidebar-menu {
     position: fixed;
     top: 0;
@@ -191,14 +191,13 @@
     height: 100vh;
     background-color: #171616;
     z-index: 1000;
-    transition: transform 0.3s ease, visibility 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.35s ease;
     display: flex;
     flex-direction: column;
-    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 4rem);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     visibility: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden; /* panels handle their own overflow */
 }
 
 .sidebar-menu.open {
@@ -206,63 +205,176 @@
     visibility: visible;
 }
 
-.sidebar-header {
+/* ─── Sliding Panels ──────────────────────────────────── */
+/* Both panels live absolutely inside the sidebar-menu.
+   Main panel: starts at 0, slides to -100% when a sub opens.
+   Sub panel:  starts at 100%, slides to 0 when active. */
+
+.sidebar-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 5vw, 4rem);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+}
+
+/* Main panel — default position (visible) */
+.sidebar-panel-main {
+    transform: translateX(0);
+    z-index: 1;
+}
+
+/* Main panel — slide out to the left when sub is active */
+.sidebar-panel-main.slide-out {
+    transform: translateX(-100%);
+}
+
+/* Sub panel — default position (hidden to the right) */
+.sidebar-panel-sub {
+    transform: translateX(100%);
+    z-index: 2;
+}
+
+/* Sub panel — slide in from the right */
+.sidebar-panel-sub.slide-in {
+    transform: translateX(0);
+}
+
+/* ─── Sidebar Header ──────────────────────────────────── */
+.sidebar-header {
+    display: grid;
+    grid-template-columns: 40px 1fr 40px;
     align-items: center;
-    position: relative;
     margin-bottom: clamp(2rem, 5vh, 4rem);
+    flex-shrink: 0;
 }
 
 .sidebar-title {
     font-family: 'Oswald', sans-serif;
-    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
     font-weight: 500;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+    text-align: center;
+    grid-column: 2;
 }
 
 .close-btn {
-    position: absolute;
-    right: 0;
     background: none;
     border: none;
     color: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     padding: 4px;
     transition: transform 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    grid-column: 3;
 }
 
 .close-btn:hover {
     transform: scale(1.1);
 }
 
+.back-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px;
+    transition: transform 0.2s ease, color 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    grid-column: 1;
+}
+
+.back-btn:hover {
+    transform: translateX(-3px);
+    color: #ffb6c1;
+}
+
+/* ─── Sidebar Nav List ────────────────────────────────── */
 .sidebar-nav-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: clamp(1.5rem, 4vh, 2.5rem);
+    gap: clamp(1.2rem, 3.5vh, 2rem);
 }
 
+/* shared base for both main and sub links */
 .sidebar-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
     color: #fff;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     font-weight: 400;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
     transition: color 0.2s ease, transform 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    background: none;
+    border: none;
+    width: 100%;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
 }
 
 .sidebar-link:hover {
     color: #ffb6c1;
     transform: translateX(5px);
+}
+
+/* ─── Sub-menu Items ──────────────────────────────────── */
+.sidebar-sub-list {
+    gap: clamp(1.4rem, 4vh, 2.2rem);
+}
+
+.sidebar-sub-link {
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.sidebar-sub-link:hover {
+    transform: translateX(5px);
+}
+
+.sub-link-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+.sub-link-label {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+}
+
+.sub-link-desc {
+    font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+    color: #888;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.sidebar-sub-link:hover .sub-link-desc {
+    color: #ffb6c1aa;
 }
 
 /* ─── Mobile Bottom Nav ───────────────────────────────── */
@@ -381,7 +493,7 @@
         font-size: 0.55rem;
     }
 
-    .sidebar-menu {
+    .sidebar-panel {
         padding: 1.5rem 1rem;
     }
 }
