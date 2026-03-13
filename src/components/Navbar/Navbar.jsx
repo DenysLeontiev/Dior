@@ -109,7 +109,7 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="nav-left">
-          <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="dior-logo" />
+          <img src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`} alt="Dior &amp; I" className="dior-logo" />
         </div>
 
         <div className="nav-center">

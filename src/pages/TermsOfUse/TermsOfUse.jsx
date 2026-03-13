@@ -47,7 +47,7 @@ function TermsOfUse() {
   return (
     <div className="terms-wrapper">
       <header className="terms-header">
-        <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`} alt="Dior &amp; I" className="logo" />
       </header>
 
       <main className="terms-main">

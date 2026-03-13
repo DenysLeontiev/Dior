@@ -19,10 +19,10 @@
 }
 
 .profile-wrapper .logo {
-    width: clamp(160px, 50vw, 220px);
+    width: clamp(80px, 25vw, 120px);
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    border-radius: 12px;
 }
 
 /* ─── Main ────────────────────────────────────────────── */

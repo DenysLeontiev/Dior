@@ -19,10 +19,9 @@
 
 .dior-logo {
     height: 36px;
-    width: auto;
+    width: 36px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
-    transform: translateY(3px);
+    border-radius: 6px;
 }
 
 /* ─── Center Nav (Desktop Tabs) ───────────────────────── */
@@ -299,6 +298,7 @@
 
     .dior-logo {
         height: 28px;
+        width: 28px;
     }
 
     /* Hide desktop center nav on mobile */
@@ -370,6 +370,7 @@
 
     .dior-logo {
         height: 24px;
+        width: 24px;
     }
 
     .mobile-bottom-nav {

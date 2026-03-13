@@ -17,11 +17,11 @@
 
 .terms-wrapper .logo {
     width: 100%;
-    max-width: 250px;
+    max-width: 120px;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1);
     margin-top: 2rem;
+    border-radius: 12px;
 }
 
 .terms-main {

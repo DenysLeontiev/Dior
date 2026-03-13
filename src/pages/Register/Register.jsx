@@ -27,7 +27,7 @@ function Register() {
 
       <header className="register-header">
         <img
-          src={`${import.meta.env.BASE_URL}images/dior.png`}
+          src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`}
           alt="Dior & I"
           className="register-logo"
         />

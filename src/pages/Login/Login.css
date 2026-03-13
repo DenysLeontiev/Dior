@@ -27,11 +27,11 @@ body.login-page {
 }
 
 .login-wrapper .logo {
-    width: clamp(160px, 50vw, 220px);
+    width: clamp(80px, 25vw, 120px);
     height: auto;
     margin-bottom: clamp(1.75rem, 4vh, 2.5rem);
     object-fit: contain;
-    filter: brightness(0) invert(1);
+    border-radius: 12px;
 }
 
 /* ─── Language Dropdown ───────────────────────────────── */

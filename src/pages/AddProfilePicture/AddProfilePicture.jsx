@@ -42,7 +42,7 @@ function AddProfilePicture() {
   return (
     <div className="profile-wrapper">
       <header className="profile-header">
-        <img src={`${import.meta.env.BASE_URL}images/dior.png`} alt="Dior &amp; I" className="logo" />
+        <img src={`${import.meta.env.BASE_URL}images/DnI-192x192.png`} alt="Dior &amp; I" className="logo" />
       </header>
 
       <main className="profile-main">
