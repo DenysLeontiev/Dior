@@ -1,4 +1,4 @@
-const DIOR_IMAGE_IDS = Array.from({ length: 28 }, (_, index) => index + 1)
+const DIOR_IMAGE_IDS = Array.from({ length: 32 }, (_, index) => index + 1)
   .filter((value) => value !== 23)
   .map((value) => String(value).padStart(3, '0'))
 

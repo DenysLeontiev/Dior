@@ -247,7 +247,10 @@ function Home() {
           </div>
           {[14, 15, 16].map((num) => (
             <div className="card" key={num}>
-              <div className="card-image-wrapper interested-placeholder-inner"></div>
+              <div className="card-image-wrapper interested-placeholder-inner">
+                <img src={getDiorImage(num)} alt="Featured article" />
+
+              </div>
             </div>
           ))}
         </ScrollRow>
