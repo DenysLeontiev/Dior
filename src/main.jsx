@@ -9,7 +9,7 @@ registerSW({ immediate: true })
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/Dior">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>

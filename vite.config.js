@@ -10,15 +10,14 @@ export default defineConfig({
   server: {
     allowedHosts: true,
   },
-  base: '/Dior/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['images/**/*'],
       workbox: {
-        navigateFallback: '/Dior/index.html',
-        navigateFallbackDenylist: [/^\/Dior\/404\.html$/],
+        navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/404\.html$/],
       },
       manifest: {
         name: 'Dior & I',
@@ -27,8 +26,6 @@ export default defineConfig({
         theme_color: '#000000',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/Dior/',
-        scope: '/Dior/',
         icons: [
           {
             src: 'icons/icon-192x192.png',
