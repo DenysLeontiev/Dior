@@ -44,7 +44,7 @@ function Events() {
       {/* Hero/Details Section */}
       <section className="event-hero">
         <div className="event-image-container">
-          <img src={getDiorImage(30)} alt="Event Image" className="event-img" />
+          <img src="/desiredImages/dior_pink_stand.png" alt="Event Image" className="event-img" />
         </div>
         <div className="event-info">
           <h1 className="event-title">Digital in Asia: Livestreaming</h1>

@@ -88,7 +88,7 @@ function Home() {
         <div className="hero-carousel">
           <div className="hero-slide active">
             <div className="hero-image-container">
-              <img src={getDiorImage(1)} alt="Featured article" />
+              <img src="/desiredImages/dior_pink_stand.png" alt="Featured article" />
             </div>
             <div className="hero-content">
               <h1 className="hero-title">Lorem Ipsum Dior</h1>
