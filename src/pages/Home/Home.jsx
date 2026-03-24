@@ -187,7 +187,7 @@ function Home() {
         <ScrollRow>
           {[
             { imgDest: "/desiredImages/monitor_with_alarm.png", title: 'ONBOARDING PATH', progress: 40 },
-            { imgDest: "/desiredImages/girl_staring_at_smartphone.png", title: 'DIGITAL AT PCD PATH', progress: 65 },
+            { imgDest: "/desiredImages/girl_looking_at_the_phone.png", title: 'DIGITAL AT PCD PATH', progress: 65 },
           ].map((card, i) => (
             <div className="card card--journey" key={i}>
               <div className="card-image-wrapper card-image-wrapper--journey">
