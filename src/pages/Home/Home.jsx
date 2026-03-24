@@ -167,14 +167,13 @@ function Home() {
       <CarouselSection index={1} title="My Mandatory" collapsedSections={collapsedSections} toggleSection={toggleSection}>
         <ScrollRow>
           {[
-            { img: 5, title: 'The secrets of communications' },
-            { img: 6, title: 'E-Learning remote work' },
-            { img: 7, title: 'Caring for the environment at Parfums Christian Dior' },
-            { img: 25, title: 'Safety at Work' }
+            { imgDest: '/desiredImages/red_lips_kiss.png', title: 'The secrets of communications' },
+            { imgDest: '/desiredImages/guy_with_beard_working.png', title: 'E-Learning remote work' },
+            { imgDest: '/desiredImages/nature.png', title: 'Caring for the environment at Parfums Christian Dior' },
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={getDiorImage(card.img)} alt={card.title} />
+                <img src={card.imgDest} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <InfoIcon />
@@ -187,14 +186,12 @@ function Home() {
       <CarouselSection index={2} title="My Learning Journey" collapsedSections={collapsedSections} toggleSection={toggleSection}>
         <ScrollRow>
           {[
-            { img: 8, title: 'ONBOARDING PATH', progress: 40 },
-            { img: 9, title: 'DIGITAL AT PCD PATH', progress: 65 },
-            { img: 10, title: 'LEADERSHIP PATH', progress: 20 },
-            { img: 26, title: 'INNOVATION PATH', progress: 10 }
+            { imgDest: "/desiredImages/monitor_with_alarm.png", title: 'ONBOARDING PATH', progress: 40 },
+            { imgDest: "/desiredImages/girl_staring_at_smartphone.png", title: 'DIGITAL AT PCD PATH', progress: 65 },
           ].map((card, i) => (
             <div className="card card--journey" key={i}>
               <div className="card-image-wrapper card-image-wrapper--journey">
-                <img src={getDiorImage(card.img)} alt={card.title} />
+                <img src={card.imgDest} alt={card.title} />
                 <div className="journey-progress-bar">
                   <div className="journey-progress-fill" style={{ width: `${card.progress}%` }}></div>
                 </div>
@@ -209,14 +206,14 @@ function Home() {
       <CarouselSection index={3} title="My Recommended Events" collapsedSections={collapsedSections} toggleSection={toggleSection}>
         <ScrollRow>
           {[
-            { img: 11, title: 'Dior Heritage Tour', date: 'Mar 18', location: 'Paris' },
-            { img: 12, title: 'Beauty Masterclass', date: 'Mar 22', location: 'Online' },
-            { img: 13, title: 'Design Workshop', date: 'Apr 1', location: 'Milan' },
-            { img: 27, title: 'Fragrance Evening', date: 'Apr 10', location: 'New York' }
+            { imgDest: '/desiredImages/dior_pink_stand.png', title: 'Dior Heritage Tour', date: 'Mar 18', location: 'Paris' },
+            { imgDest: '/desiredImages/dior_petals.png', title: 'Beauty Masterclass', date: 'Mar 22', location: 'Online' },
+            { imgDest: '/desiredImages/girl_looking_at_the_phone.png', title: 'Design Workshop', date: 'Apr 1', location: 'Milan' },
+
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={getDiorImage(card.img)} alt={card.title} />
+                <img src={card.imgDest} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <div className="card-event-meta">
@@ -281,14 +278,13 @@ function Home() {
       <CarouselSection index={6} title="Downloads" collapsedSections={collapsedSections} toggleSection={toggleSection}>
         <ScrollRow>
           {[
-            { img: 30, title: 'La Colle Noire' },
-            { img: 31, title: 'Dior In Shangaï' },
-            { img: 32, title: 'In love with Dior' },
-            { img: 33, title: 'Dior Heritage' }
+            { imgDest: '/desiredImages/la_colle.png', title: 'La Colle Noire' },
+            { imgDest: '/desiredImages/dior_hall.png', title: 'Dior In Shangaï' },
+            { imgDest: '/desiredImages/diorsnow.png', title: 'In love with Dior' },
           ].map((card, i) => (
             <div className="card" key={i}>
               <div className="card-image-wrapper">
-                <img src={getDiorImage(card.img)} alt={card.title} />
+                <img src={card.imgDest} alt={card.title} />
               </div>
               <h3 className="card-title">{card.title}</h3>
               <InfoIcon />
@@ -301,15 +297,13 @@ function Home() {
       <CarouselSection index={7} title="TOP 10" collapsedSections={collapsedSections} toggleSection={toggleSection}>
         <ScrollRow>
           {[
-            { img: 19, title: 'Handicap au travail', rank: 1 },
-            { img: 20, title: 'Christian Dior Beauty', rank: 2 },
-            { img: 21, title: 'Watch out for our new module', rank: 3, dimmed: true },
-            { img: 22, title: 'The Art of Perfumery', rank: 4 },
-            { img: 23, title: 'Style & Elegance', rank: 5 }
+            { imgDest: "/desiredImages/hand_writing.png", title: 'ONBOARDING PATH', rank: 1, progress: 40 },
+            { imgDest: "/desiredImages/pink_blue_eyes.png", title: 'DIGITAL AT PCD PATH', rank: 2, progress: 65 },
+            { imgDest: "/desiredImages/dior_petals.png", title: 'DIGITAL AT PCD PATH', rank: 3, progress: 65 },
           ].map((card, i) => (
             <div className={`card card--top10 ${card.dimmed ? 'card--dimmed' : ''}`} key={i}>
               <div className="card-image-wrapper top10-image-wrapper">
-                <img src={getDiorImage(card.img)} alt={card.title} />
+                <img src={card.imgDest} alt={card.title} />
                 <span className="top10-rank">{card.rank}.</span>
               </div>
               <h3 className="card-title card-title--top10">{card.title}</h3>

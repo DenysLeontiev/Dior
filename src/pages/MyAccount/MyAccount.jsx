@@ -199,12 +199,12 @@ function MyAccount() {
             <h3 className="section-title">MY INTERESTS</h3>
             <div className="interests-container">
               {[
-                { label: 'Culture & Heritage', img: 11 },
-                { label: 'Security', img: 12 },
-                { label: 'Software', img: 13 }
+                { label: 'Culture & Heritage', imgDest: '/desiredImages/three_women.png' },
+                { label: 'Security', imgDest: '/desiredImages/security_guy.png' },
+                { label: 'Software', imgDest: '/desiredImages/girl_looking_at_the_phone.png' }
               ].map((interest, i) => (
                 <div className="interest-card" key={i}>
-                  <img src={getDiorImage(interest.img)} alt={interest.label} />
+                  <img src={interest.imgDest} alt={interest.label} />
                   <span className="interest-label">{interest.label}</span>
                 </div>
               ))}
@@ -259,9 +259,22 @@ function MyAccount() {
           <section className="content-section">
             <h3 className="section-title">BOOKMARKED NEWS</h3>
             <div className="bookmarks-grid">
-              <div className="bookmark-card empty-state">
-                <p>No bookmarked news found.</p>
-              </div>
+              {[
+                { imgDest: '/desiredImages/full_cloth_of_petals.png', title: 'Digital in Asia: Livestreaming' },
+                { imgDest: '/desiredImages/group_of_people.png', title: 'Digital Cafe at Parfums Christian...' },
+              ].map((boormakedNews, i) => (
+                <div className="bookmark-card" key={i}>
+                  <div className="bookmark-img-wrapper">
+                    <img src={boormakedNews.imgDest} alt={`Event ${i + 1}`} />
+                    <div className="bookmark-icon">
+                      <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <p className="bookmark-title">{boormakedNews.title}</p>
+                </div>
+              ))}
             </div>
           </section>
 

@@ -13,7 +13,7 @@
 }
 
 /* ─── Back Button ─────────────────────────────────────── */
-.back-btn {
+.register-wrapper .back-btn {
   position: absolute;
   top: clamp(1rem, 3vh, 1.5rem);
   left: clamp(1rem, 4vw, 1.5rem);
@@ -33,24 +33,32 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.back-btn:hover {
+.register-wrapper .back-btn:hover {
   opacity: 0.7;
 }
 
-/* ─── Header / Logo ───────────────────────────────────── */
+/* ─── Header / Logo (text-based) ──────────────────────── */
 .register-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: clamp(2.5rem, 7vh, 4rem);
+  margin-bottom: clamp(2rem, 6vh, 3.5rem);
   width: 100%;
 }
 
-.register-logo {
-  width: clamp(80px, 25vw, 120px);
-  height: auto;
-  object-fit: contain;
-  border-radius: 12px;
+.register-logo-text {
+  font-family: 'Didot', 'Playfair Display', 'Bodoni Moda', 'Georgia', serif;
+  font-size: clamp(2.2rem, 8vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 6px;
+  color: #fff;
+  text-align: center;
+}
+
+.logo-ampersand {
+  color: #d4a1b4;
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* ─── Main ────────────────────────────────────────────── */
@@ -138,8 +146,8 @@
   pointer-events: none;
 }
 
-/* ─── Email Input ─────────────────────────────────────── */
-.email-input {
+/* ─── Text Inputs ─────────────────────────────────────── */
+.register-input {
   width: 100%;
   background: transparent;
   color: #fff;
@@ -153,12 +161,84 @@
   box-sizing: border-box;
 }
 
-.email-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+.register-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
 }
 
-.email-input:focus {
+.register-input:focus {
   border-bottom-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Password Field ─────────────────────────────────── */
+.register-password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.register-password-wrapper .register-input {
+  padding-right: 36px;
+}
+
+.register-eye-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.register-eye-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ─── Forgot Password ────────────────────────────────── */
+.register-forgot-container {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+
+.register-forgot-link {
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-style: italic;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.register-forgot-link:hover {
+  opacity: 0.7;
+}
+
+/* ─── Error Message ───────────────────────────────────── */
+.register-error {
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+  color: #d4a1b4;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 400;
+  margin: -0.5rem 0 0;
+  animation: registerErrorFadeIn 0.3s ease;
+}
+
+@keyframes registerErrorFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ─── Action Button ───────────────────────────────────── */
@@ -166,7 +246,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: clamp(0.5rem, 2vh, 1rem);
+  margin-top: clamp(0.25rem, 1vh, 0.5rem);
 }
 
 .register-wrapper .btn {
@@ -194,7 +274,15 @@
   transform: scale(0.97);
 }
 
-/* ─── Responsive ──────────────────────────────────────── */
+/* ─── Responsive: Tablet (≤ 540px) ────────────────────── */
+@media (max-width: 540px) {
+  .register-logo-text {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    letter-spacing: 4px;
+  }
+}
+
+/* ─── Responsive: Small phones (≤ 360px) ──────────────── */
 @media (max-width: 360px) {
   .register-wrapper {
     padding: 1.25rem 1rem;
@@ -210,5 +298,17 @@
 
   .register-field-container {
     max-width: 100%;
+  }
+
+  .register-forgot-container {
+    max-width: 100%;
+  }
+
+  .register-error {
+    max-width: 100%;
+  }
+
+  .register-logo-text {
+    letter-spacing: 3px;
   }
 }
