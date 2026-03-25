@@ -6,7 +6,8 @@
     max-width: 1000px;
     margin: 0 auto;
     width: 100%;
-    padding-bottom: 5rem;
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+    overflow-x: hidden;
 }
 
 /* ─── Profile Header ─────────────────────────────────── */
@@ -96,7 +97,7 @@
 .notif-search-wrapper {
     position: relative;
     padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem);
-    max-width: 400px;
+    max-width: 100%;
 }
 
 .notif-search-input {
@@ -272,7 +273,7 @@
     align-items: center;
     justify-content: space-between;
     padding: clamp(0.65rem, 1.5vw, 0.9rem) 0;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .notif-user-left {
@@ -299,9 +300,9 @@
 }
 
 .notif-user-name {
-    font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+    font-size: clamp(0.75rem, 3vw, 0.95rem);
     font-weight: 500;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -313,10 +314,10 @@
     border-radius: 30px;
     color: #fff;
     font-family: 'Jost', sans-serif;
-    font-size: clamp(0.7rem, 1.3vw, 0.8rem);
+    font-size: clamp(0.65rem, 2.5vw, 0.8rem);
     font-weight: 400;
-    letter-spacing: 0.8px;
-    padding: 6px clamp(16px, 3vw, 24px);
+    letter-spacing: 0.5px;
+    padding: 6px clamp(12px, 2.5vw, 24px);
     cursor: pointer;
     transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
