@@ -14,7 +14,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['images/**/*'],
+      includeAssets: ['images/**/*', 'dior/**/*', 'desiredImages/**/*', 'icons/**/*'],
       workbox: {
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/404\.html$/],
